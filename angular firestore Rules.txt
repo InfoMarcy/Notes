@@ -1,0 +1,65 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // match /products/{anything=**} {
+    //   allow read, write: if true;
+    // }
+    
+    
+//      match /users/{anything=**} {
+//       allow read, write: if true;
+//     }
+    
+//      match /shopping-carts/{anything=**} {
+//       allow read, write: if true;
+//     }
+    
+//     match  /products/{anything=**} {
+//     function getRole(role){
+//     return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+//     }
+//     allow read: if getRole('customer') == true;
+//     allow update: if getRole('manager') == true;
+//     allow delete: if getRole('admin') == true;
+//     }
+    
+    
+    function getRole(role){
+    return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+    }
+    
+    
+    match /users/{anything=**} {
+    	allow read, create;
+      allow update: if getRole('manager') == true || getRole('admin') == true;
+      allow delete: if getRole('admin') == true;
+    }
+
+    match /products/{anything=**} {
+    	allow read;
+      allow create, update: if getRole('admin') == true ||  getRole('manager') == true;
+      allow delete: if getRole('admin') == true;
+
+      match /{allChildren=**} {
+      	allow read;
+        allow create, delete: if getRole('admin') == true;
+      }
+    }
+
+    match /carts/{anything=**} {
+    	allow read;
+      allow write;
+      // allow create, update, delete: if getRole('admin') == true || getRole('manager') == true;
+    }
+
+    match /orders/{anything=**} {
+    	allow read: if getRole('admin') == true ||  getRole('customer') == true;
+      allow create: if getRole('admin') == true ||  getRole('customer') == true;
+    }
+    
+    match /categories/{anything=**} {
+      allow read;
+      allow write: if getRole('admin') == true;
+    }
+    
+  } 
+}

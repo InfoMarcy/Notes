@@ -1,0 +1,43 @@
+1. firebase login
+2. firebase init
+3. delete the dist folder from the angular app and run => ng build --prod
+4. firebase deploy --project luxmartstore
+5. firebase open hosting:site or =>  firebase open hosting:site --project animeland-4cc1e
+
+
+https://mdbootstrap.com/angular/advanced/sidenav/
+
+npm install firebase angularfire2 --save
+
+#authentication
+https://www.youtube.com/watch?v=_VeXby9A-qE&t=169s
+
+firebase Crud on angular
+https://www.youtube.com/watch?v=wKIRcfJfiJY&list=PLUcSYK_mU4eAfVRbJyHXRJKAzR666LTrc&index=91
+
+// get the list of product from firebase
+  
+getproducts(){
+    
+this.productService.getAll().snapshotChanges()
+.forEach(_categories => {
+    
+  this.products$ = [];
+     
+ _categories.forEach(_category => {
+      
+  let category = _category.payload.toJSON();
+     
+   category['$key'] = _category.key;
+       
+ this.products$.push(category);
+   
+   });
+   
+  });
+
+ 
+ }
+
+anime theme
+http://preview.themeforest.net/item/madara-wordpress-theme-for-manga/full_screen_preview/20849828?_ga=2.83713045.247031823.1522041522-283962773.1519683569

@@ -1,0 +1,23 @@
+#check git directory on local computer (git bash cmd)
+pwd
+
+#change git directory
+cd C:\Git
+
+#select the folder for the git project
+1.ls
+2. cd projectFolderName
+
+#enter all the commands of the newly created github repository
+...................
+
+#to add the new changes on the repository
+git status
+git add .
+
+#commin the new changes on the repository
+git commit -m "mensaje para el commit"
+
+
+#Push file to github
+git push origin master

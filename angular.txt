@@ -1,0 +1,111 @@
+#add font icon to angular
+npm install --save font-awesome angular-font-awesome
+then in style.css
+@import "~font-awesome/css/font-awesome.css";
+ <fa name="fas fa-shopping-cart fa-2x"></fa>
+
+http://aaautoimport.com.do/
+
+#ng2-angular validation library
+https://github.com/yuyang041060120/ng2-validation
+
+#Fix some erors
+ng lint --fix
+
+#login with json token
+npm install angular2-jwt --save
+
+https://material.angular.io/
+#run angular app and open in the browser
+ng serve -o
+
+
+#add bootstrap to angular
+npm install bootstrap --save
+#https://ng-bootstrap.github.io/#/getting-started
+npm install --save @ng-bootstrap/ng-bootstrap
+
+#create a class on angular
+ng generate class class_name
+
+#angular-cli.json to add bootstrap
+
+"styles": [
+       
+ "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+  
+ "styles.css"
+   
+   ],
+  
+   
+
+ #Fuel UX. Fuel UX extends Twitter Bootstrap, 
+ #and adds some additional UI components such as a datepicker
+ npm install fuelux
+
+
+#npm versions
+npm install npm@latest -g
+
+#to Start a new =Angular project type: => ng new project-name
+#get into dorectpry: => Cd folder-of-new-project
+#then => ng-serve
+
+Close angular control + C then hit Y
+#Install Animation
+
+npm install @angular/animations --save
+
+#then generate the components for the pages
+ng g component header
+
+
+#check if there is any error on our project
+https://infomarcy.github.io/angular/
+ng lint
+
+#create an angular application with service workers installed
+ng new app-name --service-worker
+
+
+#deploy to github => on packake.json
+ "deploy:gh": "ng build --prod --base-href='https://InfoMarcy.github.io/angular/' && ngh"
+#to run from angular =>  npm run deploy:gh 
+
+#then run ng serve for the changes to take effect
+
+#create a pipe for search
+ng generate pipe search-artist
+
+#Angular Material for design
+npm install --save @angular/material @angular/cdk
+
+#to support input gesture
+npm install --save hammerjs
+
+<a routerLink="path-from-a-route-in-appRoutes">Link Text</a>
+
+#create a directive using angular cli
+ng g d input-format
+
+Format phone number on input with Angular 2 => 
+http://www.coderbro.com/angular2/2017/04/21/format-phone-number-in-form-input-with-angular2.html
+npm install angular2-text-mask --save
+
+
+#git repository inside angular folder on the console
+1. => git remote add origin https://github.com/InfoMarcy/angular.git
+2. =>  git push origin master
+
+3. #in package.json add =>  "deploy:gh": "ng build --prod --base-href='https://InfoMarcy.github.io/angular/' && ngh"
+4. to run the github page => npm run deploy:gh
+
+refactor file locations url ./
+go to => tsconfig.json and add => 
+,
+    "baseUrl": "./src",
+    "paths": {
+      "shared/*" : [
+        "app/shared/*"
+      ]

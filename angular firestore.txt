@@ -1,0 +1,2 @@
+#dependencies to work with angular material tables y faker es para general ids aleatorias de 16 digitos
+npm install --save @angular/material @angular/cdk faker

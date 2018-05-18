@@ -1,0 +1,117 @@
+1. #to run mongo db on cm:
+mongod
+
+2. # to use the Mongo database we enter:
+mongo
+
+3. # to show the databases:
+shows dbs
+
+4. # to see which database we are using:
+db
+
+5. # to change database
+use databaseName
+
+6. #to create an user 
+use admin
+db.createUser({
+    user: "admin",
+    pwd : "root",
+    roles:[{ role : "root", db: "admin"}]
+             })
+
+7. # get a collection by addresss
+db.getCollection('Hotels').find({"address.delegacion": "Alvaro Obregon"})
+
+8. #Create a collection in db
+use test
+db
+db.createCollection("customer");
+
+9. #display the collection in the current database
+show collections
+
+10. #delete a collection
+db.collectionName.drop();
+
+11. #delete the database
+db.dropDatabase();
+
+12. #create a database
+use databaseName
+
+13. #Insert a document in the collection 
+db.collectionName.insert({ name: "Ana", age: 32, isFrequentBuyer: false })
+
+
+13. #Insert an array of documents in the collection
+db.collectionName.insert([
+{ name: "Maria", age: 32, isFrequentBuyer: true},
+{ name: "Jose", age: 40, isFrequentBuyer: false},
+{ name: "Juan", age: 29, isFrequentBuyer: true}
+]);
+
+15. #display all the docuements inside a collection
+db.collectionName.find({});
+
+16. #display all the docuements inside a collection and format it in json
+db.collectionName.find({}).pretty();
+
+
+17. #display just a field of a document
+db.collectionName.find({}, {name:1})
+
+18. #display all the fields unless the one specify
+db.collectionName.find({}, {name:0})
+
+19. #display just a field of a document and hide the id
+db.collectionName.find({}, {name:1, _id:0});
+
+20. #count the numbers of documents in a collection
+db.collectionName.find({}).count();
+
+21. #find the documents in a  collection which contained the specify field
+db.collectionName.find({name: "Ana"});
+
+
+22. #find the document in a  collection by id
+db.collectionName.find({_id: ObjectId("5ae0a8a91253000ec0283338")});
+
+23. #find the documents  which has a field that is less than
+db.collectionName.find({age: {$lt: 32}});
+
+
+23. #find the documents  which has a field that is greater than
+db.collectionName.find({age: {$gt: 32}});
+
+24. #find a document which contained the specified field and the specified characters
+db.collectionName.find({name: /a/});
+db.collectionName.find({name: /na/});
+
+25. #find a document which contained the specified field and start with specified characters
+db.collectionName.find({name: /a/});
+db.collectionName.find({name: /^ma/});
+
+26. #filter a collection by two or more fields
+db.collectionName.find({age: {$lt: 32}, isFrequentBuyer:true});
+
+27. #sort the documents in a collection query (1=> Ascending) (-1=> descending)
+db.collectionName.find({isFrequentBuyer:true}).sort({age: 1});
+
+28. #update a document in a collection and set the field we want to update
+db.collectionName.update({_id: ObjectId("5ae0a8a91253000ec0283338")}, {$set:{name: "Claudia"}});
+
+29. #update all the documents which successfully has the specified conditions, {multi:true}
+db.collectionName.update({age: {$gt:20}}, {$set:{isFrequentBuyer:true}}, {multi:true});
+
+
+30. #delete a document by id
+db.collectionName.remove({_id: ObjectId("5ae0a8a91253000ec0283338")});
+
+31. #delete some documents 
+db.collectionName.remove({age: {$lt: 33}});
+
+32. #delete all the documents from a collection or clear a collection
+db.collectionName.remove({});
+
