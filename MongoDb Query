@@ -1,1 +1,99 @@
 ./mongoimport --host 00.00.00.000 --port 27017 --authenticationDatabase=admin -d Database_Name --collection Collection_Name -u _user -p _pass --file /directory/file.txt
+// create a list of nested object on mongodb
+	
+// Models
+public class PersonModel {
+        @Id
+		private String id;
+		@Field("name")
+		private String name;
+    	@Field("address")
+		private List<AddressModel> address;
+        @Field("addressQty")
+    	private int addressQty;
+		// generate getters and setters
+}
+public class AddressModel {
+	private String street;
+    private String city;
+    private String postalCode;
+ // generate getters and setters
+}
+//Service
+public void savePerson(PersonModel person) {
+JsonNode jsonNode = null; // method to get person object
+
+	// get latitude and longitud
+	JsonNode jsonPerson = jsonNode.get("person");
+	JsonNode jsonAddress = jsonPerson.get("address");
+
+	JsonNode city = null;
+	JsonNode postalCode = null;
+
+	// loop over the data in the json address List
+	for (JsonNode getAddressData : jsonAddress) {
+		if (getAddressData.get("city") != null && getAddressData.get("postalCode") != null) {
+			city = getAddressData.get("city");
+			postalCode = getAddressData.get("postalCode");
+		}
+	}
+
+	if (jsonPerson != null) {
+
+		// verify the the registro existe
+		PersonModel checkPerson = myRepository.get(jsonPerson.get("id"));
+
+		// create a new person Model
+		PersonModel addPerson = new PersonModel();
+
+		// create a new address Model
+		AddressModel newAddress = new AddressModel();
+		// create a list to of addresses to save the list
+		List<AddressModel> addressList = new ArrayList<>();
+		
+		//set the id of the person
+		addPerson.setId(jsonPerson.get("id"));
+
+		// check if the person exist
+		if (checkPerson != null) {
+			//if the person exist increase the AddressQty by 1
+			addPerson.setAddressQty(checkPerson.getAddressQty() + 1);
+
+			// if the person does has an address add the address to the list
+			if (checkPerson.getAddress() != null) {
+				
+				for (AddressModel address : checkPerson.getAddress()) {
+					if (address != null) {
+						addressList.add(address);
+					}
+				}
+
+			}
+
+		}
+		// if the person does not have an address add 1 to the addressQty
+		else {
+			addPerson.setAddressQty(1);
+		}
+       // add the values for the new address
+		newAddress.setCity(city);
+		newAddress.setPostalCode(postalCode);
+		
+		// add the new address to the list
+		addressList.add(newAddress);
+
+		
+		// set the address list to the person object
+		addPerson.setAddress(addressList);
+
+		// save the person to the database
+		myRepository.savePerson(addPerson);
+
+	}
+}
+
+//Repository
+public void savePerson(PersonModel person, String collectionName) {
+	if(person != null){ myRepository.save(person, collectionName);}
+}
+	
