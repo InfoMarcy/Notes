@@ -1,1 +1,91 @@
 
+	  
+	
+	// create barcode
+	private String createBarCode(int tipoCodigo) {
+		log.info("Start Creation  of BarCode");
+
+		Calendar c = Calendar.getInstance();
+		c.setTimeZone(TimeZone.getDefault());
+		int year = c.get(Calendar.YEAR);
+		int month = c.get(Calendar.MONTH) + 1;
+		int day = c.get(Calendar.DAY_OF_MONTH);
+		int hour = c.get(Calendar.HOUR_OF_DAY);
+		int minute = c.get(Calendar.MINUTE);
+
+
+		String strTipoCodigo = null;
+
+		if (tipoCodigo < 10)
+			strTipoCodigo = "00" + tipoCodigo;
+		else if (tipoCodigo >= 10 && tipoCodigo < 100)
+			strTipoCodigo = "0" + tipoCodigo;
+
+		String codigo = strTipoCodigo + ("" + year).substring(2, 4) + (month < 10 ? "0" + month : month)
+				+ (day < 10 ? ("0" + day) : day) + (hour < 10 ? ("0" + hour) : hour)
+				+ (minute < 10 ? ("0" + minute) : minute) + UtilToken.getNumericToken(3);
+
+		log.info("Barcode created =>  " + codigo);
+		return codigo;
+	}
+
+
+// create token for barcode
+		public static String getNumericToken(int sizeToken) {
+		StringBuilder builder = new StringBuilder();
+
+		SecureRandom ranGen = new SecureRandom();
+		int aux = sizeToken;
+		for (;;) {
+			int character = ranGen.nextInt(NUMERIC_STRING.length());
+
+			builder.append(NUMERIC_STRING.charAt(character));
+			aux = aux - 1;
+			if (aux == 0) {
+				break;
+			}
+
+		}
+		return builder.toString();
+	}
+
+
+
+// SecureRandom
+	    public int nextInt(int bound) {
+        if (bound <= 0)
+            throw new IllegalArgumentException(BadBound);
+
+        int r = next(31);
+        int m = bound - 1;
+        if ((bound & m) == 0)  // i.e., bound is a power of 2
+            r = (int)((bound * (long)r) >> 31);
+        else {
+            for (int u = r;
+                 u - (r = u % bound) + m < 0;
+                 u = next(31))
+                ;
+        }
+        return r;
+    }
+
+
+// 
+        protected int next(int bits) {
+        long oldseed, nextseed;
+        longClass seed = this.seed;
+        do {
+            oldseed = seed.get();
+            nextseed = (oldseed * multiplier + aditivo) & mask;
+        } while (!seed.compareAndSet(oldseed, nextseed));
+        return (int)(nextseed >>> (48 - bits));
+    }
+
+import org.apache.log4j.Logger;
+private static final Logger log = Logger.getLogger(myClass.class);
+
+    private final longClass seed;
+
+    long multiplier = 0x5DEECE66DL;
+    long aditivo = 0xBL;
+    long mask = (1L << 48) - 1;
