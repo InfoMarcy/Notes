@@ -1,1 +1,48 @@
+	// desbloquear usuario si esta bloqueado al inicio del nuevo dia
+	private void checkDate() {
+		//format date
+		SimpleDateFormat sdf =  new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		
+		Calendar c = Calendar.getInstance();
+		// set the calendar to start of today
+		c.set(Calendar.HOUR_OF_DAY, 0);
+		c.set(Calendar.MINUTE, 0);
+		c.set(Calendar.SECOND, 0);
+		c.set(Calendar.MILLISECOND, 0);
 
+		// and get that as a Date
+		Date today = c.getTime();
+		
+		try {
+			
+			// fecha de bloqueo
+			Date usuarioBloqueado = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").parse("2018/06/22 00:00:02");
+
+			Calendar yesterday = Calendar.getInstance(); // today
+			yesterday.add(Calendar.DAY_OF_YEAR, -1); // yesterday
+
+			Calendar bloqueadoDate = Calendar.getInstance();
+			bloqueadoDate.setTime(usuarioBloqueado); // your date
+
+			if (yesterday.get(Calendar.YEAR) == bloqueadoDate.get(Calendar.YEAR) && yesterday.get(Calendar.DAY_OF_YEAR) == bloqueadoDate.get(Calendar.DAY_OF_YEAR)) {
+			
+				System.err.println("it was yesterday");
+				log.info("Desbloquear usuario");
+				
+			}else if(yesterday.get(Calendar.YEAR) == bloqueadoDate.get(Calendar.YEAR) && yesterday.get(Calendar.DAY_OF_YEAR) > bloqueadoDate.get(Calendar.DAY_OF_YEAR)){
+				System.err.println("it was before yesterday");
+				log.info("Desbloquear usuario");
+			}
+			  
+			
+			else {
+				// it was today
+				System.err.println("Intenta Nuevamente manana");
+				log.info("El dia no ha terminado");
+			}
+			          
+		}catch (Exception e) {
+			
+		}
+		          
+	}
