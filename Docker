@@ -36,3 +36,19 @@ How to Persist Database Data on inside a Docker Container
 
 5. Get docker history =>  history | grep mongo
 6. Run mongo again  using the thread number from history=> !587
+
+_____________________________________________________________
+How to Persist Database Data on inside a Docker Container
+1. Run MySql in a Docker Container and persist the data in a local directory => docker run --name luxmart-mysql -v /Users/desarrolladorios1/dockerdata/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root  -p 3306:3306 -d mysql
+
+2. MYSQL with no pass => docker run --name docker-mysql -v /Users/desarrolladorios1/dockerdata/mysql:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes  -p 3306:3306 -d mysql
+
+HouseKeeping on Docker 
+1. Kill All running containers => docker kill $(docker ps -q)
+2. Delete all stop docker containers => docker rm $(docker ps -a -q)
+3. Delete  all  untagged docker images => docker rmi $(docker images -q -f dangling=true)
+4. Delete  all docker images => docker rmi $(docker images -q)
+5. Remove all Dangling volumes => docker volume rm $(docker volume ls -f dangling=true -q)
+
+Run Centos Image
+1. docker run -d centos
