@@ -57,3 +57,34 @@ HouseKeeping on Docker
 
 Run Centos Image
 1. docker run -d centos
+
+
+_____________________________________________________________
+
+
+Run Centos Image
+1. Install centos in docker =>  docker run -d centos
+2. Next step after installing centos to run it =>  docker run -d centos tail -f /dev/null
+3. Shell into centos =>  docker exec -it 9e0f472230f6 bash
+4. check if java is install => java -version
+5. install java => yum install java
+
+4. Get to the user of the system you are using  => whoami
+5. kill a process => kill -9 <process id>
+
+Dockerfile => 
+FROM centos
+
+RUN yum install -y java
+
+VOLUME /tpm
+
+ADD /spring-boot-mongodb-0.0.1-SNAPSHOT.jar myapp.jar
+RUN sh -c 'touch /myapp.jar
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom"."-jar", "/myapp.jar"]
+
+See the Dockerfile in the console => vi Dockerfile
+
+To Initialize  java in docker => docker build -t spring-boot-docker .
+To run java in docker => docker run -d -p 8080:8080 spring-boot-docker
+
