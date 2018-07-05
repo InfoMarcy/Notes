@@ -88,3 +88,5 @@ See the Dockerfile in the console => vi Dockerfile
 To Initialize  java in docker => docker build -t spring-boot-docker .
 To run java in docker => docker run -d -p 8080:8080 spring-boot-docker
 
+_____________________________________________________________
+Run Zipking in docker => docker run -d -p 9411:9411 openzipkin/zipkin
