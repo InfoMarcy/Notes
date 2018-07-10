@@ -1,0 +1,143 @@
+ kubernetes(K8s) is came out of google.
+https://github.com/kubernetes/kubernetes
+Kubernetes is  a leading cluster manager or orchestrator that let us manage containerized apps at scale. and its a lot like a data center os, we give it work to run and it makes the decision about where in the data center to run.
+
+Kubernetes Architecture 
+Kubernetes is an orchestrator for MicroServices apps that run on containers, and a
+MicroServices apps is just a fancy name for an application that´s made up of lots of small and independent services.
+
+Master are in charge and Nodes do the work
+Yaml file holds the configuration which is pass to the master to deploy the app
+
+Kubernetes cluster is effectively a bunch of master and nodes and it runs on linux
+A Master(apiservert) is actually a bunch of moving parts and in the simples and most common setups , they all run in a single server and by default  it uses the port 443
+
+
+Kube-apiserver  =>
+1. Front-end to the control plane
+2. Exposes the API(Rest)
+3. Consumes JSON(via manifest files)
+
+we send in our manifest files which we mentioned already. these declare the state of our app, like a record of intent, the master validate it and it attempts to deploy it on the cluster. Then there is the cluster store. 
+Now if the apiserver is the brains of the cluster
+
+Cluster store is definitely the memory. So the config in the state of the cluster gets persistently stored here
+The cluster store
+1. Persistent storage
+2. Cluster state and config
+3. uses etcd
+
+etcd is an open source distributed key value store. It´s developed by the guys at CoreOs, and if the key value stores aren't´t your things, its a NoSQL Database.  But it´s distributed , consistent , and watchable , and when I say consistent, I mean all copies can be written to, but they talk to each other and they work out consistently
+
+Kube-Controller-manager
+1. Node controller
+2. Endpoints Controller
+3. Namespace Controller
+They watches for changes and helps maintain desired state
+
+Kube-Scheduler
+1. Watches apiserver for new pods
+2. Assign work to nodes
+
+So the master is the brains of kubernetes. commands and queries come into the apiserver component of the master. We can stick authentication on at this point
+
+Nodes
+1. Kubelet
+2. Container runtime
+3. Kube-proxy
+
+The kubelet is the main Kubernetes agent on the node. in fact, its probably fair to say that kubelet is the node. So you install it on a linux host, it register the host as a node in the Kubernetes cluster and then it watches the apiserver on the master for work assignments.
+Anytime it sees one, it carries out the task and then it maintains a reporting channel back to the master. If for whaterver reason, the kubelet can´t run the work or maybe something goes wrong it reports back to the master and  the control plane magic on the master decides what to do.
+
+So if a pod fails on a node, the kubelet is not responsible for restarting it or finding another node for it to run on, it simply reports the state back to the master. And, actually speaking of reporting back the reminds me, the kubelet exposes an endpoint on the local host on port 10255 where we can inspect it
+
+Port 10255 on your nodes lets you inspect aspect of the Kubelet
+
+Kubelet 
+1. The main kubernetes agent
+2. Register node with cluster
+3. Watches apiserver
+4. Instanciate Pods
+5. Reports back to master
+6. Exposes endpoint on port : 10255
+
+Pod => can be one or more containers packaged toguether and deployed as a single unit. But because it´s containers inside of pods, the kubelet needs to work with the container runtime to do all of the container management stuff, things like pulling images and starting and stopping containers. But for most part the container runtime s going to be Docker
+
+A major part of what the kubernetes does is talk to the container runtime here. in the case of Docker, it uses the native Docker API
+
+Kube-Proxy this is like the network brains of the node
+1. it makes sure that every pod gets its own unique IP. so that is one IP per POD
+2. All containers in a POD share a single IP
+3. Load balances across all pods in a single service
+
+A service is a way of hiding multiples pods behind a single network address.
+
+Kubernetes runs containers but always inside a pod
+Pods can have multiple containers
+
+
+A pod is a ring-fenced environment for running containers. so the pod itself doesn't actually run anything. Its just a sandbox , of sorts, to run containers in
+
+All containers in a pod share the pod environment  
+
+Pods exist  on a single node so its atomic
+
+Services 
+1. Only send traffic to healthy pods,
+2. can be configured for session affinity
+3. Can point to things outside the cluster
+4. Load balancing is purely random by default
+5. Uses TCP by default
+
+Installing Cubernetes
+1. Minikube => use to install Kunernetes in your pc
+1) Install  kubectl =>  from https://kubernetes.io
+kubectl cluster-info
+kubectl version --client
+2) install Minikube from => https://github.com/kubernetes/minikube/releases
+3) install docker-machine-driver-xhyve to avoid using virtualbox
+4) start minikube => minikube start --vm-driver=xhyve
+
+Manual Install of Kubernetes 
+1. Install Install kubeadm
+
+Pods
+1. a pod contains usually one or more containers
+2. you deploy a pod to a cluster by defining it in a manifest file
+3. then you feed this manifest file to the apiserver
+4. then the scheduler deploys it to a node
+
+Working with pods
+1. Get the nodes for working with the pods => kubectl get nodes
+2. Pod file => vim pod.yml
+
+-----------------------pod.yml file-------------------------
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod
+  labels:
+    zone: prod
+    version: v1
+spec:
+  containers:                  
+   - name: hello-ctr
+  image: nigrlpoulton/pluralsight-docker-cl:latest
+  ports:
+  - containerPort: 8080    
+
+3. Create a pod => kubectl create -f pod.yml
+4. Check the pod =>  kubectl get pods
+5. Check the description of the pods => kubectldescribe pods
+6. Check the pod =>  kubectl get pods
+7. Get an specific pod => kubectl get pods/hello-pod
+8. Delete a pod => kubectl delete pods hello-pod
+9. Apply changes to a replica file => kubectl apply -f rc.yml
+10. Check status of a pod => kubectl get rc -o wide
+
+Working with Kubernetes Service
+
+
+
+
