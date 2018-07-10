@@ -90,3 +90,13 @@ To run java in docker => docker run -d -p 8080:8080 spring-boot-docker
 
 _____________________________________________________________
 Run Zipking in docker => docker run -d -p 9411:9411 openzipkin/zipkin
+
+----------------------------------------------------------------
+Run MySQL in a docker container
+docker run -d \
+    --name demo-mysql \
+    -e MYSQL_ROOT_PASSWORD=p4SSW0rd \
+    -e MYSQL_DATABASE=demo \
+    -e MYSQL_USER=dbuser \
+    -e MYSQL_PASSWORD=dbp4ss \
+    mysql:latest
