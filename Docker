@@ -103,3 +103,14 @@ docker run -d \
 _____________________________________________________________________
 Using Docker containers for your Spring boot applications
 https://g00glen00b.be/docker-spring-boot/
+
+
+docker run -d \
+    --name spring-boot-mongodb \
+    --link sleepy_mccarthy:mongodb \
+    -p 8080:8080 \
+    -e DATABASE_HOST=sleepy_mccarthy \
+    -e DATABASE_PORT=27017 \
+    luxmart/spring-boot-mongodb
+    
+    docker  run  -p 27017:27017  -v /Users/desarrolladorios1/dockerdata/mongo:/data/db -d mongo
