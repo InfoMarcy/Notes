@@ -1,0 +1,31 @@
+#run spring boot app inside a Centos Image
+1. docker run -d centos
+#run centos image
+2. docker run -d centos tail -f /dev/null
+# get inside centos
+3. docker exec -it <image name> bash
+#inside centos image
+4. whoami; ls ; ps -ef
+#check if java is install in centos
+5. java -version
+#install java on centos
+6. yum install java
+
+
+#run the spring boot using dcokerfile
+1.  docker build -t luxmart-store-app .
+2. docker run -d -p 8080:8080 luxmart-store-app 
+3. docker logs <container name>
+
+
+Dockerfile
+FROM centos
+RUN yum install -y java
+
+VOLUME /tmp
+ARG JAR_FILE
+ADD /luxmartApp-0.0.1-SNAPSHOT.jar app.jar
+RUN sh -c 'touch /app.jar'
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
+
