@@ -1,2 +1,5 @@
   get the webhook for github and openshift
   ./oc describe bc/<name of service>
+  
+  delete a service in openshift using the console
+  ./oc delete service java-app
