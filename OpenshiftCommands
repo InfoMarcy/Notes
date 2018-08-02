@@ -1,5 +1,11 @@
-  get the webhook for github and openshift
+  #get the webhook for github and openshift
   ./oc describe bc/<name of service>
   
-  delete a service in openshift using the console
+  #delete a service in openshift using the console
   ./oc delete service java-app
+  
+  
+  #Application.properties JAVA to connect to mongodb image on openshift
+    spring.data.mongodb.database= luxmartdb
+    spring.data.mongodb.port=27017
+    spring.data.mongodb.uri= mongodb://mongo.java-app.svc
