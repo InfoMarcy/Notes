@@ -9,3 +9,6 @@
     spring.data.mongodb.database= luxmartdb
     spring.data.mongodb.port=27017
     spring.data.mongodb.uri= mongodb://mongo.java-app.svc
+    
+    #mongodb image on openshift in the service
+    Hostname: mongo.java-app.svc 
