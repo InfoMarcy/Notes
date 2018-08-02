@@ -1,0 +1,2 @@
+  get the webhook for github and openshift
+  ./oc describe bc/<name of service>
