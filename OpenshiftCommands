@@ -12,3 +12,7 @@
     
     #mongodb image on openshift in the service
     Hostname: mongo.java-app.svc 
+    
+    
+   Select a project in openshift console 
+    ./oc project threescale
