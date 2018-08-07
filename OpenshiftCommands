@@ -4,6 +4,14 @@
 2 #get all openshift projects
 ./oc get projects
 
+3 # select a project on openshift
+./oc project cicd
+
+
+3 #Grant Jenkins Access to Projects
+./oc policy add-role-to-user edit system:serviceaccount:cicd:jenkins -n dev
+./oc policy add-role-to-user edit system:serviceaccount:cicd:jenkins -n stage
+
   #get the webhook for github and openshift
   ./oc describe bc/<name of service>
   
