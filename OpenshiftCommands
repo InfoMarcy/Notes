@@ -1,3 +1,6 @@
+1 #create a new project in openshift 
+./oc new-project cicd --display-name="CI/CD"
+
   #get the webhook for github and openshift
   ./oc describe bc/<name of service>
   
