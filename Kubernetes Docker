@@ -11,3 +11,6 @@ docker stop <container ID>
 
 #to get out of the ubuntu linux 
 exit
+
+#Delete  a container by Name
+docker rm -f unruffled_sinoussi
