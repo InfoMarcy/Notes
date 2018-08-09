@@ -75,12 +75,17 @@ Run Centos Image
 Dockerfile => 
 FROM centos
 
+FROM centos
+
 RUN yum install -y java
 
 VOLUME /tpm
 
-ADD /spring-boot-mongodb-0.0.1-SNAPSHOT.jar myapp.jar
-RUN sh -c 'touch /myapp.jar
+ADD /openshift-java-app.jar myapp.jar
+RUN sh -c 'touch /myapp.jar'
+ENTRYPOINT ["java", "-Dspring.data.mongodb.uri=mongodb://mongodb:27017","-Djava.security.egd=file:/dev/./urandom","-jar","/myapp.jar"]
+
+
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom"."-jar", "/myapp.jar"]
 
 See the Dockerfile in the console => vi Dockerfile
