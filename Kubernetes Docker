@@ -1,0 +1,5 @@
+#run ubuntus on docker
+docker run -t -i ubuntu /bin/bash
+#start a container in docker
+docker start <container ID>
+docker stop <container ID>
