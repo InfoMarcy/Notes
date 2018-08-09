@@ -1,5 +1,13 @@
-#run ubuntus on docker
-docker run -t -i ubuntu /bin/bash
 #start a container in docker
 docker start <container ID>
 docker stop <container ID>
+
+#run ubuntus on docker
+1. docker run -t -i ubuntu /bin/bash
+2. root@a877edd0723a:/# ls
+3. apt-get update
+4.apt-get install -y curl
+5. curl https://www.google.com
+
+#to get out of the ubuntu linux 
+exit
