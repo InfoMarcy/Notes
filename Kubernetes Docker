@@ -14,3 +14,18 @@ exit
 
 #Delete  a container by Name
 docker rm -f unruffled_sinoussi
+
+Ubuntu machine with external “Volume”
+
+docker run \
+  --name ubuntu \
+  -e EKT1146958MAC.local=$(ifconfig en0 | awk '/ *inet /{print $2}') \
+  -v /Users/desarrolladorios1/Ubuntu_Linux_OperatingSystem:/src \
+  -t -i \
+  ubuntu /bin/bash
+  
+  
+  
+  
+  Running a kubernetes cluster on local machine
+  http://callistaenterprise.se/blogg/teknik/2017/12/20/kubernetes-on-docker-in-docker/
