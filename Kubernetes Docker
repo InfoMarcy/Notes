@@ -166,3 +166,11 @@ Step 1: Scaling a deployment
 5. kubectl describe deployments/kubernetes-bootcamp
 
 #Step 2: Load Balancing
+1. kubectl describe services/kubernetes-bootcamp
+2. export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+3. echo NODE_PORT=$NODE_PORT
+
+Step 3: Scale Down
+1. kubectl scale deployments/kubernetes-bootcamp --replicas=2
+#The number of replicas decreased to 2. List the number of Pods, with get pods:
+2. kubectl get pods -o wide
