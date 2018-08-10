@@ -174,3 +174,32 @@ Step 3: Scale Down
 1. kubectl scale deployments/kubernetes-bootcamp --replicas=2
 #The number of replicas decreased to 2. List the number of Pods, with get pods:
 2. kubectl get pods -o wide
+
+
+Step 1: Update the version of the app
+1. kubectl get deployments
+2. kubectl get pods
+#To view the current image version of the app
+
+3. kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=jocatalin/kubernetes-bootcamp:v2
+
+Step 2: Verify an update
+#First, let’s check that the App is running.
+1. kubectl describe services/kubernetes-bootcamp
+2. export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+3. echo NODE_PORT=$NODE_PORT
+4. curl localhost:$NODE_PORT
+
+#The update can be confirmed also by running a rollout status command:
+5. kubectl rollout status deployments/kubernetes-bootcamp
+
+
+Step 3: Rollback an update
+#Let’s perform another update, and deploy image tagged as v10 :
+1.  kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=gcr.io/google-samples/kubernetes-bootcamp:v10
+
+
+#There is no image called v10 in the repository. Let’s roll back to our previously working version
+1. kubectl rollout undo deployments/kubernetes-bootcamp
+2. kubectl get pods
+3. kubectl describe pods
