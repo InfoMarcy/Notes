@@ -118,3 +118,11 @@ Step 1 Create a new service
 #the IP of the Node and the externally exposed port:
 7. curl $(minikube ip):$NODE_PORT
     curl localhost:$NODE_PORT
+    
+#Step 2: Using labels
+1. kubectl get pods -l run=kubernetes-bootcamp
+2. kubectl get services -l run=kubernetes-bootcamp
+
+#Get the name of the Pod and store it in the POD_NAME environment variable:
+3. export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+4. echo Name of the Pod: $POD_NAME
