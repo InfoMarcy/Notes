@@ -138,3 +138,12 @@ Step 1 Create a new service
  #We see here that the label is attached now to our Pod. And we can query now the list of pods using the new label:
  7. kubectl get pods -l app=v1
 
+#Step 3 Deleting a service
+1. kubectl delete service -l run=kubernetes-bootcamp
+2. kubectl get services 
+3. curl localhost:$NODE_PORT
+
+#This proves that the app is not reachable anymore from outside of the cluster. 
+#You can confirm that the app is still running with a curl inside the pod:
+4. kubectl exec -ti $POD_NAME curl localhost:8080
+kubectl exec -ti kubernetes-bootcamp-5c69669756-twj99 curl localhost:8080
