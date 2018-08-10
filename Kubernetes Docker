@@ -54,3 +54,20 @@ curl http://localhost:8001/version
 1. curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/proxy/
 
 2. curl http://localhost:8001/api/v1/namespaces/default/pods/kubernetes-bootcamp-5c69669756-twj99/proxy/
+
+
+
+
+Troubleshooting with kubectl
+#to view what containers are inside that Pod and what images are used to build those containers 
+1. kubectl describe pods
+
+#View the container logs
+1. kubectl logs $POD_NAME
+2. kubectl logs kubernetes-bootcamp-5c69669756-twj99
+
+ #Executing command on the container
+ We can execute commands directly on the container once the Pod is up and running
+ #Let’s list the environment variables:
+ 1. kubectl exec $POD_NAME env
+ 2. kubectl exec kubernetes-bootcamp-5c69669756-twj99 env
