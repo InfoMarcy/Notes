@@ -209,3 +209,9 @@ Step 3: Rollback an update
 1. cd to the yml location
 2. kubectl create -f redis.yaml
 3. kubectl get pods
+
+#Add label to a POD
+#Get pod by the label
+1. kubectl get pods -l env=test
+#Delete pod by the label
+2.kubectl delete pod -l env=test
