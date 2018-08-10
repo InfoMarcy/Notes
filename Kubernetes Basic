@@ -221,3 +221,12 @@ kubectl apply -f redis.yaml
 
 #Delete the Deployment by name:
 1. kubectl delete deployment nginx-deployment
+
+#On most providers, the service IPs are not externally accessible. 
+#The easiest way to test that the service is working is to create a busybox Pod and exec commands on it remotely
+#Provided the service IP is accessible, you should be able to access its http endpoint with wget on the exposed port:
+1. export SERVICE_IP=$(kubectl get service nginx-service -o go-template='{{.spec.clusterIP}}')
+2. export SERVICE_PORT=$(kubectl get service nginx-service -o go-template='{{(index .spec.ports 0).port}}')
+
+#Check $SERVICE_IP and $SERVICE_PORT:
+3. echo "$SERVICE_IP:$SERVICE_PORT"
