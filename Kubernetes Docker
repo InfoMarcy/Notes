@@ -7,10 +7,12 @@ docker rm -f unruffled_sinoussi
 
 #Enable kubernetes on docker by going to preferences and Kebernetes
 
+kubectl version
+kubectl cluster-info
 kubectl get pods
 kubectl get services
 kubectl delete pods <pod name>
-kubectl cluster-info
+
 
 #google course on kubernetes
 1.  kubectl run nginx --image=nginx:1.10.0
@@ -25,6 +27,16 @@ https://medium.com/@thms.hmm/docker-for-mac-with-kubernetes-enable-k8s-dashboard
 3. kubectl get pod --namespace=kube-system | grep dashboard
 4. kubectl port-forward kubernetes-dashboard-7d5dcdb6d9-xrfdv 8443:8443 --namespace=kube-system
 https://localhost:8443 
+
+#Deployment
+1. kubectl run kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1 --port=8080
+
+#Get deployments
+2. kubectl get deployments
+
+#View our app
+3. kubectl proxy
+http://localhost:8001/
 
 
 
