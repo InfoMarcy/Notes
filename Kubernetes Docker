@@ -36,36 +36,11 @@ https://localhost:8443
 
 #View our app
 3. kubectl proxy
+
+#see all those APIs hosted through the proxy endpoint,
 http://localhost:8001/
 
-
-
-
-
-
-
-
-
-
-#run ubuntus on docker
-1. docker run -t -i ubuntu /bin/bash
-2. root@a877edd0723a:/# ls
-3. apt-get update
-4.apt-get install -y curl
-5. curl https://www.google.com
-
-#to get out of the ubuntu linux 
-exit
-
-
-
-Ubuntu machine with external “Volume”
-docker run \
-  --name ubuntu \
-  -e EKT1146958MAC.local=$(ifconfig en0 | awk '/ *inet /{print $2}') \
-  -v /Users/desarrolladorios1/Ubuntu_Linux_OperatingSystem:/src \
-  -t -i \
-  ubuntu /bin/bash
-  
+query the version directly through the API using the curl command
+curl http://localhost:8001/version
   
 
