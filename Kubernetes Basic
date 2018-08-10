@@ -210,8 +210,14 @@ Step 3: Rollback an update
 2. kubectl create -f redis.yaml
 3. kubectl get pods
 
+#Update a  pod from a yml file 
+kubectl apply -f redis.yaml
+
 #Add label to a POD
 #Get pod by the label
 1. kubectl get pods -l env=test
 #Delete pod by the label
 2.kubectl delete pod -l env=test
+
+#Delete the Deployment by name:
+1. kubectl delete deployment nginx-deployment
