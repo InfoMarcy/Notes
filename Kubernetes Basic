@@ -241,3 +241,16 @@ kubectl delete pod busybox
 
 #delete the service by name:
 kubectl delete service nginx-service
+
+
+
+Currently, there are three types of application health checks that you can choose from:
+
+1. HTTP Health Checks - The Kubelet will call a web hook. If it returns between 200 and 399, it is considered success, 
+failure otherwise. 
+
+2. Container Exec - The Kubelet will execute a command inside your container. I
+f it exits with status 0 it will be considered a success. 
+
+3. TCP Socket - The Kubelet will attempt to open a socket to your container. 
+If it can establish a connection, the container is considered healthy, if it can’t it is considered a failure.
