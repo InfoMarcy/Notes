@@ -1,3 +1,7 @@
+ create a pod from a file in kubernetes
+ kubectl create -f filename.yaml
+ 
+ 
 #redis.yaml
 apiVersion: v1
 kind: Pod
