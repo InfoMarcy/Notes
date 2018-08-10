@@ -203,3 +203,9 @@ Step 3: Rollback an update
 1. kubectl rollout undo deployments/kubernetes-bootcamp
 2. kubectl get pods
 3. kubectl describe pods
+
+
+#Create a pod from a yml file 
+1. cd to the yml location
+2. kubectl create -f redis.yaml
+3. kubectl get pods
