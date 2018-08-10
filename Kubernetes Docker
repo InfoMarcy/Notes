@@ -157,4 +157,12 @@ Step 1: Scaling a deployment
 2. kubectl scale deployments/kubernetes-bootcamp --replicas=4
 
 #To list your Deployments once again
-2. kubectl get deployments
+3. kubectl get deployments
+
+#let’s check if the number of Pods changed
+4. kubectl get pods -o wide
+
+#The change was registered in the Deployment events log. To check that, use the describe command:
+5. kubectl describe deployments/kubernetes-bootcamp
+
+#Step 2: Load Balancing
