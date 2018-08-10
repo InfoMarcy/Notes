@@ -235,3 +235,9 @@ kubectl apply -f redis.yaml
 4. kubectl run busybox --generator=run-pod/v1 --image=busybox --restart=Never --tty -i --env "SERVICE_IP=$SERVICE_IP" --env "SERVICE_PORT=$SERVICE_PORT"
 5. wget -qO- http://$SERVICE_IP:$SERVICE_PORT # Run in the busybox container
 6. exit
+
+# Clean up the pod we created with "kubectl run"
+kubectl delete pod busybox 
+
+#delete the service by name:
+kubectl delete service nginx-service
