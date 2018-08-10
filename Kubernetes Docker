@@ -94,3 +94,27 @@ The source code of the app is in the server.js file:
 
 #You can create a Service at the same time you create a Deployment by using
 --expose in kubectl.
+
+
+
+
+
+Step 1 Create a new service
+1. kubectl get pods
+2. kubectl get services
+#To create a new service and expose it to external traffic we’ll use the expose command with NodePort as parameter
+3. kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+
+#To find out what port was opened externally (by the NodePort option) 
+4. kubectl describe services/kubernetes-bootcamp
+
+#Create an environment variable called NODE_PORT that has the value of the Node port assigned:
+5. export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+6. echo NODE_PORT=$NODE_PORT
+
+#LoadBalancer Ingress:     localhost
+
+#Now we can test that the app is exposed outside of the cluster using curl, 
+#the IP of the Node and the externally exposed port:
+7. curl $(minikube ip):$NODE_PORT
+    curl localhost:$NODE_PORT
