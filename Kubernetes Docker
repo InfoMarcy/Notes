@@ -126,3 +126,15 @@ Step 1 Create a new service
 #Get the name of the Pod and store it in the POD_NAME environment variable:
 3. export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 4. echo Name of the Pod: $POD_NAME
+
+
+#To apply a new label we use the label command followed by the object type, object name and the new label:
+5. kubectl label pod $POD_NAME app=v1
+ kubectl label pod kubernetes-bootcamp-5c69669756-twj99 app=v1
+ 
+ 6. kubectl describe pods $POD_NAME
+ kubectl describe pods kubernetes-bootcamp-5c69669756-twj99
+ 
+ #We see here that the label is attached now to our Pod. And we can query now the list of pods using the new label:
+ 7. kubectl get pods -l app=v1
+
