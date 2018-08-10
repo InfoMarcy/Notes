@@ -87,3 +87,10 @@ The source code of the app is in the server.js file:
 
 #To get out
 1. exit
+
+#NodePort - Exposes the Service on the same port of each selected Node in the cluster using NAT. 
+#Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>. Superset of ClusterIP.
+
+
+#You can create a Service at the same time you create a Deployment by using
+--expose in kubectl.
