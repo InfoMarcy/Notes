@@ -230,3 +230,8 @@ kubectl apply -f redis.yaml
 
 #Check $SERVICE_IP and $SERVICE_PORT:
 3. echo "$SERVICE_IP:$SERVICE_PORT"
+
+#Then, create a busybox Pod:
+4. kubectl run busybox --generator=run-pod/v1 --image=busybox --restart=Never --tty -i --env "SERVICE_IP=$SERVICE_IP" --env "SERVICE_PORT=$SERVICE_PORT"
+5. wget -qO- http://$SERVICE_IP:$SERVICE_PORT # Run in the busybox container
+6. exit
