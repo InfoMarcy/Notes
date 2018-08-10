@@ -147,3 +147,14 @@ Step 1 Create a new service
 #You can confirm that the app is still running with a curl inside the pod:
 4. kubectl exec -ti $POD_NAME curl localhost:8080
 kubectl exec -ti kubernetes-bootcamp-5c69669756-twj99 curl localhost:8080
+
+
+Step 1: Scaling a deployment
+#list your Deployments once again
+1. kubectl get deployments
+
+#let’s scale the Deployment to 4 replicas.
+2. kubectl scale deployments/kubernetes-bootcamp --replicas=4
+
+#To list your Deployments once again
+2. kubectl get deployments
