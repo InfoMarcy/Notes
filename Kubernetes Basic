@@ -278,3 +278,5 @@ Exposing an External IP Address to Access an Application in a Cluster
 9. curl http://<external-ip>:<port>
 curl http://localhost:8080
 http://localhost:8080
+
+
