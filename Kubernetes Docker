@@ -71,3 +71,16 @@ Troubleshooting with kubectl
  #Let’s list the environment variables:
  1. kubectl exec $POD_NAME env
  2. kubectl exec kubernetes-bootcamp-5c69669756-twj99 env
+ 
+ #Next let’s start a bash session in the Pod’s container:
+ 1.kubectl exec -ti $POD_NAME bash
+ 2.kubectl exec -ti kubernetes-bootcamp-5c69669756-twj99 bash
+ 
+#We have now an open console on the container where we run our NodeJS application. 
+The source code of the app is in the server.js file:
+
+1. cat server.js
+
+#You can check that the application is up by running a curl command:
+
+1. curl localhost:8080
