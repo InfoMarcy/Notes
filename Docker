@@ -118,4 +118,4 @@ docker run -d \
     -e DATABASE_PORT=27017 \
     luxmart/spring-boot-mongodb
     
-    docker  run  -p 27017:27017  -v /Users/desarrolladorios1/dockerdata/mongo:/data/db -d mongo
+    docker  run  -p 27017:27017  -v /Users/desarrolladorios1/dockerdata/mongo:/data/db --name mongodb -d mongo
