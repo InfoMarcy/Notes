@@ -11,3 +11,6 @@ COPY files/UnlimitedJCEPolicyJDK8/* \
  
  #Run the docker 
 1. docker build .
+
+1. To Initialize  java in docker => docker build -t spring-boot-docker .
+2. To run java in docker => docker run -d -p 8080:8080 spring-boot-docker
