@@ -1,0 +1,13 @@
+Tutorial => https://www.baeldung.com/dockerizing-spring-boot-application
+
+#Create a docker file on
+1. src/main/docker
+# Dockerfile
+FROM alpine:edge
+MAINTAINER Marcy Garcia <marcygarcia@outlook.com>
+RUN apk add --no-cache openjdk8
+COPY files/UnlimitedJCEPolicyJDK8/* \
+  /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/
+ 
+ #Run the docker 
+ docker build --tag=alpine-java:base --rm=true .
