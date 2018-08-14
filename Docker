@@ -119,3 +119,6 @@ docker run -d \
     luxmart/spring-boot-mongodb
     
     docker  run  -p 27017:27017  -v /Users/desarrolladorios1/dockerdata/mongo:/data/db --name mongodb -d mongo
+    
+    
+    docker run -p 27017:27017 -d --name mongodb --network=springbootmongo  -v /Users/desarrolladorios1/dockerdata/mongo:/data/db  mongo
