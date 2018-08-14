@@ -10,4 +10,4 @@ COPY files/UnlimitedJCEPolicyJDK8/* \
   /usr/lib/jvm/java-1.8-openjdk/jre/lib/security/
  
  #Run the docker 
- docker build --tag=alpine-java:base --rm=true .
+1. docker build .
