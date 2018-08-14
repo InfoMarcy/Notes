@@ -29,3 +29,14 @@ RUN sh -c 'touch /app.jar'
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
 
+Tutorial => https://www.linkedin.com/pulse/dockerize-spring-boot-mongodb-application-aymen-kanzari
+1. Create a network => docker network create springbootmongo
+#connect the mongodb to the network
+2. docker run -p 27017:27017 -d --name mongodb --network=springbootmongo  -v /Users/desarrolladorios1/dockerdata/mongo:/data/db  mongo
+#Now we need to open a terminal session within our container :
+3. docker exec -it 64d7f48a2ae9 bash
+#This will print out the hosts, including an entry where the name is the first few characters of the container id.
+4. cat /etc/hosts
+
+#If the springboot-mongo image was build successfully and available locally, we can run container with our Spring Boot application as follows:
+5. docker run -p 8080:8080 --name springbootmongoapp --network=springbootmongo springboot-mongo
