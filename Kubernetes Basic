@@ -279,4 +279,5 @@ Exposing an External IP Address to Access an Application in a Cluster
 curl http://localhost:8080
 http://localhost:8080
 
-
+#see the port number
+kubectl get svc
