@@ -40,3 +40,7 @@ Tutorial => https://www.linkedin.com/pulse/dockerize-spring-boot-mongodb-applica
 
 #If the springboot-mongo image was build successfully and available locally, we can run container with our Spring Boot application as follows:
 5. docker run -p 8080:8080 --name springbootmongoapp --network=springbootmongo springboot-mongo
+
+#upload a java image on docker to docker hub
+#first tag the image with the name of the repo
+docker tag springboot-mongo infomarcy/springboot-mongo
