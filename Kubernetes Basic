@@ -284,4 +284,4 @@ kubectl get svc
 
 #Spring Cloud Kubernetes requires access to the Kubernetes API in order to be able to retrieve a list 
 #of addresses for pods running for a single service
-kubectl create clusterrolebinding admin --clusterrole=cluster-admin --serviceaccount=default:default
+1. kubectl create clusterrolebinding admin --clusterrole=cluster-admin --serviceaccount=default:default
