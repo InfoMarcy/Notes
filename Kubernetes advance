@@ -1,0 +1,14 @@
+#get the cluster info
+1. kubectl cluster-info
+
+# see the master node
+2. kubectl get nodes
+
+#We create a Deployment configuration with the following command:
+3. kubectl run employee-service-microservicio --image=infomarcy/employee-service-microservicio --port=8080
+
+#see the deployment that was generated
+4. kubectl get deployments
+
+#see the pod that was generated
+5. kubectl get pods
