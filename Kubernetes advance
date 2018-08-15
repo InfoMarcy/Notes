@@ -81,4 +81,4 @@ spec:
 
 #upload a java image on docker to docker hub => first tag the image with the name of the repo
 3. docker tag employee-service-microservicio infomarcy/employee-service-microservicio
-4. docker push infomarcy/employee-service-microservicio
+4. docker push infomarcy/employee-service-microservicio 
