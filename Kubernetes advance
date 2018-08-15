@@ -70,6 +70,7 @@ spec:
       containers:
       - name: employee
         image: infomarcy/employee-service-microservicio
+        imagePullPolicy: Always #force the pod to update the image from the repositorio
         ports:
         - containerPort: 8080
 
