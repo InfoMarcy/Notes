@@ -41,6 +41,14 @@
 14. curl http://${LoadBalancer Ingress}:${NodePort}
 curl http://localhost:30579/
 
+#Now, let’s check which labels are present. First, we check the label of our deployment:
+15. kubectl describe deployment
+
+#Kubernetes has automatically added this label to our Deployment => Labels:  run=employee-service-microservicio
+
+#Now we can check which Pods and Services also have the same label;
+15. kubectl get pods -l run=employee-service-microservicio
+16. kubectl get services -l run=employee-service-microservicio
 
 #deployment.yaml 
 apiVersion: apps/v1
