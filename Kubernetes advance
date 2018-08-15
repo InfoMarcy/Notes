@@ -64,3 +64,12 @@ spec:
         image: infomarcy/employee-service-microservicio
         ports:
         - containerPort: 8080
+
+
+#Upload docker images to docker hub
+1. docker build -t employee-service-microservicio .
+2. docker run -d -p 8080:8080 employee-service-microservicio
+
+#upload a java image on docker to docker hub => first tag the image with the name of the repo
+3. docker tag employee-service-microservicio infomarcy/employee-service-microservicio
+4. docker push infomarcy/employee-service-microservicio
