@@ -40,3 +40,27 @@
 #The port number at property NodePort is the port which is exposed for our application
 14. curl http://${LoadBalancer Ingress}:${NodePort}
 curl http://localhost:30579/
+
+
+#deployment.yaml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee
+  labels:
+    app: employee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employee
+  template:
+    metadata:
+      labels:
+        app: employee
+    spec:
+      containers:
+      - name: employee
+        image: infomarcy/employee-service-microservicio
+        ports:
+        - containerPort: 8080
