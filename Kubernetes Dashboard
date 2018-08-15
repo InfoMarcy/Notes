@@ -1,0 +1,5 @@
+1. kubectl config use-context docker-for-desktop
+2. kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+3. kubectl get pod --namespace=kube-system | grep dashboard
+4. kubectl port-forward kubernetes-dashboard-7d5dcdb6d9-xrfdv 8443:8443 --namespace=kube-system
+https://localhost:8443 
