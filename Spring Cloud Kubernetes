@@ -1,0 +1,3 @@
+#Spring Cloud Kubernetes requires access to the Kubernetes API in order to be able to retrieve 
+#list of addresses for pods running for a single service.
+1. kubectl create clusterrolebinding admin --clusterrole=cluster-admin --serviceaccount=default:default
