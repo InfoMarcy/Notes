@@ -1,6 +1,7 @@
 On Configure
 #Build Triggers
 1. check => Build whenever a snapshot dependency is build
+
 # we specify the frecuency that we want jenkings to check the source code
 #if there is any changes in the code to generate a new build
 2. check => Poll SCM
