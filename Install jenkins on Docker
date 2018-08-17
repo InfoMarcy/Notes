@@ -7,3 +7,7 @@
 5. ls
 6. cd /var/jenkins_home/secrets/initialAdminPassword
 7. cat initialAdminPassword
+fecad2e652a04da88b20799e23debb6f
+
+
+#install maven plugin on jenkings
