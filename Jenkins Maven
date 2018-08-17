@@ -4,7 +4,7 @@ On Configure
 
 # we specify the frecuency that we want jenkings to check the source code
 #if there is any changes in the code to generate a new build
-2. check => Poll SCM
+2. check => Poll SCM => Git Polling Log is used to see if jenkings detected any changes on the code
 Schedule => * * * * *
 1* => minutes (0 -59)
 2* => hours (0 -23)
