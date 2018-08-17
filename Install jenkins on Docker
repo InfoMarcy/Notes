@@ -1,0 +1,6 @@
+1. docker pull jenkins
+2. docker run -d -p 49001:8080 -v $PWD/jenkins:/var/jenkins_home:z -t jenkins
+3. url => http://localhost:49001/
+
+#get inside the jenkins container
+4. docker exec -it 58fe3da0cc3f /bin/bash
