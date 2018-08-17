@@ -36,3 +36,20 @@ Flujo de trabajo de la integracion continua
 
 Despliegue a entorno de pruebas
 #instalar los plugins 1. copy artifacts y 2. deploy to container
+
+1. create a new maven project para desplegar el artifactory
+2. create a new freestyle project to deploy the app
+   #On Build => Copy Artifact from another Project
+   1. on Project name => <nombre del project para desplegar el artifactory>
+   2. on Artifacts to copy => **/*.war
+   
+   #On Post Build Actions => Deploy war/ear to a container
+   3. WAR/EAR files => **/*.war
+   4. Container 
+      1. Tomcat URL	 => http://localhost:8888/
+      2. add tomcat credentials
+      
+#activar el trabajo deploy-to-staging
+ 1. go to project para desplegar el artifactory 
+ 2. configure => on Post-build Actions select => Build other projects => <nombre del project to deploy the app>
+
