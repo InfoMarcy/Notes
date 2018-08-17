@@ -23,3 +23,7 @@ Connect to git using jenkins
 2. Select the maven version
 3. Goals => clean  package
 
+
+#after installing checkstyle plugin
+3. Goals => clean  package checkstyle:checkstyle
+4. on Post-build Actions select => Public Checkstyle analisis results
