@@ -16,3 +16,11 @@ Connect to git using jenkins
 #Source Code management
 1. Select Git
 2. Repositories => Repository URl => git url
+
+
+
+#Build
+1. Invoke top-level Maven targets
+2. Select the maven Version
+3. Goals => clean  package
+
