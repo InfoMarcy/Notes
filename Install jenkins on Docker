@@ -4,7 +4,6 @@
 
 #get inside the jenkins container
 4. docker exec -it 58fe3da0cc3f /bin/bash
-
 5. ls
 6. cd /var/jenkins_home/secrets/initialAdminPassword
 7. cat initialAdminPassword
