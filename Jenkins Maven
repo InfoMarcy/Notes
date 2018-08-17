@@ -11,3 +11,8 @@ Schedule => * * * * *
 3* => day of the month (1 -31)
 4* => month (1 -12)
 5* => day of the week (0 -6)
+
+Connect to git using jenkins
+#Source Code management
+1. Select Git
+2. Repositories => Repository URl => git url
