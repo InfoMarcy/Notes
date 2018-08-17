@@ -21,6 +21,6 @@ Connect to git using jenkins
 
 #Build
 1. Invoke top-level Maven targets
-2. Select the maven Version
+2. Select the maven version
 3. Goals => clean  package
 
