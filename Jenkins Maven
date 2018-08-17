@@ -27,3 +27,8 @@ Connect to git using jenkins
 #after installing checkstyle plugin
 3. Goals => clean  package checkstyle:checkstyle
 4. on Post-build Actions select => Public Checkstyle analisis results
+
+
+Flujo de trabajo de la integracion continua
+1. on Post-build Actions select => Archive the artifacts
+2. files to archive => **/*.war
