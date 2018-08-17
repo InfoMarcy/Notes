@@ -1,1 +1,22 @@
+#install tomcat on docker container
 
+#Dockerfile
+FROM tomcat:8.0
+MAINTAINER "Marci Garcia <marcygarcia@outlook.com>"
+ADD tomcat-users.xml /usr/local/tomcat/conf/
+
+#tomcat-users.xml
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+ <role rolename="manager-gui"/>
+ <role rolename="manager-gui"/>
+ <role rolename="manager-script"/>
+ <user username="infomarcy" password="secret" roles="manager,manager-gui,manager-script" />
+</tomcat-users>
+
+
+#I'm going to build this image using this command: 
+1. docker build -t infomarcy/tomcat .
+
+#This command will run Tomcat and expose the container's port 8080 on the host's port of 8888: 
+2. docker run -p 8888:8080 infomarcy/tomcat
