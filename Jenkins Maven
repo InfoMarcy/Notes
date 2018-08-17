@@ -32,3 +32,7 @@ Connect to git using jenkins
 Flujo de trabajo de la integracion continua
 1. on Post-build Actions select => Archive the artifacts
 2. files to archive => **/*.war
+
+
+Despliegue a entorno de pruebas
+#instalar los plugins 1. copy artifacts y 2. deploy to container
