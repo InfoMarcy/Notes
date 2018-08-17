@@ -10,4 +10,5 @@
 fecad2e652a04da88b20799e23debb6f
 
 
-#install maven plugin on jenkings
+#install Checkstyle plugin on jenkings to report the quality of the code and analise the code
+
