@@ -1,0 +1,5 @@
+#find all the files with ends with .sh and show their permissions
+1. ls -al *.sh
+
+# assign executable permisions to the file ending in .sh
+ 2. chmod +x *.sh
