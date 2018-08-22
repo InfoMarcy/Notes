@@ -3,3 +3,6 @@
 
 # assign executable permisions to the file ending in .sh
  2. chmod +x *.sh
+
+#dar permisos a la carpeta
+sudo chmod -R 777 homebrew/
