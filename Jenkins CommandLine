@@ -7,4 +7,6 @@
 #download the jenkins-cli.jar
 4.  java -jar jenkins-cli.jar -s http://localhost:8080/ help
 #login to jenkins from cli
-5. java -jar jenkins-cls.jar -s http://localhost:8080 help --username infomarcy --password secret
+5. java -jar jenkins-cli.jar -s http://localhost:8080/ help --username infomarcy --password secret
+
+
