@@ -1,0 +1,10 @@
+#go to the jenkins localdirecgtory
+1. cd /Users/desarrolladorios1/jenkins/
+#Start jenkins
+2. java -jar jenkins.war
+#add / cli to jenkins url
+3. http://localhost:8080/cli/
+#download the jenkins-cli.jar
+4.  java -jar jenkins-cli.jar -s http://localhost:8080/ help
+#login to jenkins from cli
+5. java -jar jenkins-cls.jar -s http://localhost:8080 help --username infomarcy --password secret
