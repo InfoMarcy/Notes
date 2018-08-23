@@ -1,0 +1,5 @@
+#Install Delivery Pipeline plugin
+#Add delivery Pipeline view in kenkins
+1. select => Delivery Pipeline View
+2. 	Enable start of new pipeline build
+3. Enable manual triggers
