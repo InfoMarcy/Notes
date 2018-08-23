@@ -6,3 +6,10 @@
 4. 	Enable rebuild
 5. Show total build time
 6. 	Theme => contrast
+
+#Install Build Pipeline plugin
+#add build pipeline view in jenkins
+7. Build Pipeline View
+8. 	Select Initial Job
+9.No Of Displayed Builds = 3
+10. 	Console Output Link Style => New Window
