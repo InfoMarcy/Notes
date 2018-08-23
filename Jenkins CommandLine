@@ -9,4 +9,9 @@
 #login to jenkins from cli
 5. java -jar jenkins-cli.jar -s http://localhost:8080/ help --username infomarcy --password secret
 
-
+#To manage user install the plugin 
+6. Role-based Authorization Strategy
+#Go to 
+7.Configure Global Security => Authorization => Role-Based Strategy
+#Assign Roles to users go to
+8.  Manage and Assign Roles => Manage and Assign Roles
