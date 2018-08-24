@@ -2,7 +2,15 @@
 #Pipeline Project
 1. On Pipeline Syntax => select Step => node: Allocate Node => Label => label_of_the_node
 
+#windows
 node('NodoEsclavo') {
 git 'https://github.com/InfoMarcy/Kubernetes-Java-Employee.git'
-sh 'mvn verify'
+bat 'mvn verify'
 }
+
+#mac
+node('master') {
+    git 'https://github.com/InfoMarcy/Kubernetes-Java-Employee.git'
+  sh './mvnw  verify'
+}
+
