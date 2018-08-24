@@ -1,2 +1,8 @@
 #Install Nunit Plugin
+#Pipeline Project
+1. On Pipeline Syntax => select Step => node: Allocate Node => Label => label_of_the_node
 
+node('NodoEsclavo') {
+git 'https://github.com/InfoMarcy/Kubernetes-Java-Employee.git'
+sh 'mvn verify'
+}
