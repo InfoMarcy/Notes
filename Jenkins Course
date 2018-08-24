@@ -14,3 +14,14 @@ node('master') {
   sh './mvnw  verify'
 }
 
+#Stage PipeLine
+node('master') {
+    
+    stage('checkout') {
+        git 'https://github.com/InfoMarcy/Kubernetes-Java-Employee.git'
+    }
+    
+     stage('build and test maven project') {
+  sh './mvnw  verify'
+     }
+}
