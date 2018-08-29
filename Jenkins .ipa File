@@ -1,3 +1,8 @@
+#In Xcode project 
+1. Code Signing Resource Rules Path => $(SDKROOT)/ResourceRules.plist
+2. Schemes => the option shared must be selected on the scheme
+
+
 #create a .ipa file using jenkins
 1. Execute Shell
 
