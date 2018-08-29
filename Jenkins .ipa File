@@ -28,7 +28,7 @@ PROJDIR=${WORKSPACE}
 PROJECT_NAME=Testing_IOS
 PROJECT_BUILDDIR="${PROJDIR}/build/Release-iphoneos"
 TARGET_TEST_NAME="UnitTests"
-BUILD_HISTORY_DIR="/Users/desarrolladorios1/.jenkins/workspace/archives"
+BUILD_HISTORY_DIR="${WORKSPACE}/build"
 DEVELOPPER_NAME="iPhone Developer: Marci Garcia (G6KGDAKM9P)"
 
 # compile project
