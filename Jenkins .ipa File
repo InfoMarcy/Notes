@@ -1,0 +1,41 @@
+#create a .ipa file using jenkins
+1. Execute Shell
+
+security unlock-keychain -p PASSWORD ${HOME}/Library/Keychains/login.keychain
+
+security set-keychain-settings -t 3600 -l ${HOME}/Library/Keychains/login.keychain
+
+
+2. Xcode
+-Clean before build?
+-Generate Archive?
+-	Configuration => Release
+-	Xcode Schema File => Testing_IOS
+
+3. Code signing & OS X keychain options
+-Manual signing?
+4. Advanced Xcode build options
+-Custom xcodebuild arguments => PROVISIONING_PROFILE=${PROVISIONING_PROFILE}
+
+5. Execute Shell
+
+PROJDIR=${WORKSPACE}
+PROJECT_NAME=Testing_IOS
+PROJECT_BUILDDIR="${PROJDIR}/build/Release-iphoneos"
+TARGET_TEST_NAME="UnitTests"
+BUILD_HISTORY_DIR="/Users/desarrolladorios1/.jenkins/workspace/archives"
+DEVELOPPER_NAME="iPhone Developer: Marci Garcia (G6KGDAKM9P)"
+
+# compile project
+echo Building Project
+cd "${PROJDIR}"
+xcodebuild -target "${PROJECT_NAME}"   -configuration Release
+
+#Check if build succeeded
+if [ $? != 0 ]
+then
+  exit 1
+fi
+
+/usr/bin/xcrun -sdk iphoneos PackageApplication -v "${PROJECT_BUILDDIR}/Testing_IOS.app" -o "${BUILD_HISTORY_DIR}/Testing_IOS.ipa" --sign "${DEVELOPPER_NAME}"
+
