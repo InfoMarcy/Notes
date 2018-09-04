@@ -44,3 +44,36 @@ fi
 
 /usr/bin/xcrun -sdk iphoneos PackageApplication -v "${PROJECT_BUILDDIR}/Testing_IOS.app" -o "${BUILD_HISTORY_DIR}/Testing_IOS.ipa" --sign "${DEVELOPPER_NAME}"
 
+##Segundo metodo para generar ipa => BDM 
+
+PROJDIR=${WORKSPACE}
+PROJECT_NAME="Banco Azteca"
+PROJECT_BUILDDIR="${PROJDIR}/build/Release-iphoneos"
+BUILD_HISTORY_DIR="${WORKSPACE}/build"
+PROJECT=Full\ Build
+
+DEVELOPPER_NAME="iPhone Developer: Marci Garcia (G6KGDAKM9P)"
+
+
+# compile project
+echo Building Project
+cd "${PROJDIR}"
+
+/usr/bin/xcrun xcodebuild -scheme "Full Build" clean archive \
+-allowProvisioningUpdates \
+CODE_SIGN_STYLE='Automatic'
+PROVISIONING_PROFILE_SPECIFIER=${PROVISIONING_PROFILE}
+CODE_SIGN_IDENTITY=${CODE_SIGNING_IDENTITY}
+
+
+echo "App Archived"
+
+
+ARCHIVE="$(ls -dt ~/Library/Developer/Xcode/Archives/*/Full*.xcarchive|head -1)"
+# 3
+IPA_DIR="${WORKSPACE}"
+DSYM="${ARCHIVE}/dSYMs/${PROJECT}.app.dSYM"
+APP="${ARCHIVE}/Products/Applications/${PROJECT_NAME}.app"
+
+
+xcodebuild -exportArchive -archivePath "${ARCHIVE}" -exportPath "${IPA_DIR}" -exportOptionsPlist "${IPA_DIR}/BDMApplication/BDMApplication/Info.plist" 
