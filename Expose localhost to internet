@@ -1,0 +1,10 @@
+1. Download ngrok 
+https://ngrok.com/download
+
+2. cd to ngrok file
+3. on cm execute 
+ ./ngrok http 9090
+ 
+  ./ngrok http puerto
+
+Forwarding                    http://7ecf88dc.ngrok.io -> localhost:9090   
