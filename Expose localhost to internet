@@ -8,3 +8,8 @@ https://ngrok.com/download
   ./ngrok http puerto
 
 Forwarding                    http://7ecf88dc.ngrok.io -> localhost:9090   
+
+
+#Apigee Configuration
+https://github.com/apigee/apijam/tree/master/Labs/Core/
+https://apigee.com/
