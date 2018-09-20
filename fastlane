@@ -1,1 +1,28 @@
+https://docs.fastlane.tools/
+#To release your app in the App Store, all you have to do is
+fastlane release
+bundle exec fastlane release
+
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :devopstest_tienda do
+  	sync_code_signing
+  	disable_automatic_code_signing(path: "BDMApplication.xcodeproj")
+    build_app(
+      export_method: "development",
+      export_options: {
+        provisioningProfiles: { 
+          "mx.com.bancoazteca.devops" => "BAZDigitalMovilInHouseDevopsProfile",
+          "mx.com.bancoazteca.devops.keyboard" => "BAZDigitalMovilInHouseDevopsKeyboardProfile",
+          "mx.com.bancoazteca.devops.siri" => "BAZDigitalMovilInHouseDevopsSiriProfile"
+      }
+    }
+  )
+    enable_automatic_code_signing(path: "BDMApplication.xcodeproj")
+  end
+end
+
 
