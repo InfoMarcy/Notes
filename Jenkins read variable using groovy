@@ -1,0 +1,68 @@
+1. #Build => execute shell
+file=/var/lib/jenkins/workspace/Bdm-CICD-Qa-4-AutorizacionSI3/wsBancaDigital/build/libs/
+if [ -e "$file" ]; then
+    echo "File exists"
+else 
+    mkdir /var/lib/jenkins/workspace/Bdm-CICD-Qa-4-AutorizacionSI3/wsBancaDigital/build/libs/
+fi
+
+cd /var/lib/jenkins/workspace/Bdm-CICD-Qa-4-AutorizacionSI3/wsBancaDigital/build/libs/
+rm -rf *
+
+
+2. #Build Environment => Set Build Name
+Build Name =>  #${Build}
+
+
+3. #This project is parameterized => String Parameter => 
+1. name => Build
+2. Default Value => NAN
+
+
+String Parameter => 
+3. name => fecha
+4. Default Value => NAN
+
+
+
+5. #Build => execute shell (create file to save the variable)
+ruta=/var/lib/jenkins/workspace/Bdm-CICD-Qa-4-AutorizacionSI3/wsBancaDigital/build/libs/
+ruta2=$(ls $ruta/*.war)
+for nombres in $ruta2
+do
+nombres="${nombres##*/}"
+done
+echo $nombres > /var/lib/jenkins/workspace/Bdm-CICD-Qa-4-AutorizacionSI3/wsBancaDigital/build/libs/logFile.txt
+
+6. #Execute System groovy Script => groovy command => Groovy Script
+import hudson.model.*
+import jenkins.model.Jenkins
+ //--------------------Extrae Parametros--------------------
+def thr = Thread.currentThread()
+def build = thr?.executable
+ 
+def parameters = build?.actions.find{ it instanceof ParametersAction }?.parameters
+
+def hardcoded_param = "Build"
+def resolver = build.buildVariableResolver
+def Build = resolver.resolve(hardcoded_param)
+
+def hardcoded_param2 = "fecha"
+def resolver2 = build.buildVariableResolver
+def fecha = resolver2.resolve(hardcoded_param2)
+
+//--------------------Extrae Parametros--------------------
+
+def nombreArtefacto = new File("/var/lib/jenkins/workspace/Bdm-CICD-Qa-4-AutorizacionSI3/wsBancaDigital/build/libs/logFile.txt").text
+
+def params = 
+    [
+        new StringParameterValue('Build', Build),
+        new StringParameterValue('fecha', fecha),
+        new StringParameterValue('nombreArtefacto', nombreArtefacto.replace("\n","")),
+    ]
+
+    def j = Jenkins.getInstance();
+    def job = j.getItem("QA_Http_Rest_Estado_Balanceo");
+    def future = job.scheduleBuild2(0, new Cause.UpstreamCause(build), new ParametersAction(params))
+println "Si lo llamo bien"
