@@ -1,3 +1,20 @@
+1. Create Gemfile on project root folder
+#run on console
+2. sudo bundle update
+3. sudo bundle install
+4. sudo bundle update fastlane
+5. export LC_ALL=en_US.UTF-8  
+6. export LANG=en_US.UTF-8
+7. fastlane init (option 4 or manual)
+
+
+
+
+
+
+
+
+
 https://docs.fastlane.tools/
 #To release your app in the App Store, all you have to do is
 fastlane release
