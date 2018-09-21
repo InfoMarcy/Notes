@@ -21,3 +21,11 @@ git commit -m "mensaje para el commit"
 
 #Push file to github
 git push origin master
+
+
+cd existing_folder
+git init
+git remote add origin http://10.50.109.50/megarcial/fastlane-ios-app.git
+git add .
+git commit -m "fastlane"
+git push -u origin master
