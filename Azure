@@ -4,5 +4,19 @@
 2. az group create --name marcy-aks --location eastus
 #check the resource group
 3. az group list
-#create a new kubernetes cluster with one node
+#create a new kubernetes cluster with one node (kubelive is the)
 4. az aks create --resource-group marcy-aks --name kubelive --node-count 1 --generate-ssh-keys
+#show us the available clusters
+5. az aks list
+# cube CTL is what we are going to use to talk  to the kubernetes cluster
+6. az aks install-cli
+
+cd ~
+cd .kube/
+ls
+
+# kube Configuration => everything you need to kube CTL to talk to the endpoint will be configure
+7. az aks get-credentials --resource-group marcy-aks --name kubelive
+
+#get kubernetes nodes
+8. kubectl get nodes
