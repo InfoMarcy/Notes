@@ -38,3 +38,9 @@ ls
 
 #take a pod an expose it to the outside wolrd
 14. kubectl expose pod <pod name> --port=80 --target-port=80 --type=LoadBalancer
+
+#scale a cluster
+15. az aks scale <name of the cluster> 
+
+#Upgrade the kubernetes version
+16.az aks upgrade  
