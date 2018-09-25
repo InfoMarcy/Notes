@@ -1,0 +1,4 @@
+#Azure CLI
+1. az provider register -n Microsoft.ContainerService
+# create a resource group
+2. az group create --name marcy-aks --location eastus
