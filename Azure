@@ -35,3 +35,6 @@ ls
 
 #watch the services
 13. kubectl get svc --watch
+
+#take a pod an expose it to the outside wolrd
+14. kubectl expose pod <pod name> --port=80 --target-port=80 --type=LoadBalancer
