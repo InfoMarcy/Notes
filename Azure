@@ -2,3 +2,7 @@
 1. az provider register -n Microsoft.ContainerService
 # create a resource group
 2. az group create --name marcy-aks --location eastus
+#check the resource group
+3. az group list
+#
+4. az aks create --resource-group marcy-aks --name kubelive --node-count 1 --generate-ssh-keys
