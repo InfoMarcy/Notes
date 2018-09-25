@@ -21,5 +21,17 @@ ls
 #get kubernetes nodes
 8. kubectl get nodes
 
-#
-9. 
+#get component status
+9. kubectl get cs
+
+#get cluster info
+10. kubectl cluster-info
+
+#Deploy an appication
+11. kubectl create -f  app.yaml
+
+#watch the pods
+12. kubectl get po --watch
+
+#watch the services
+13. kubectl get svc --watch
