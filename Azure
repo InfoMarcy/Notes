@@ -4,5 +4,5 @@
 2. az group create --name marcy-aks --location eastus
 #check the resource group
 3. az group list
-#
+#create a new kubernetes cluster with one node
 4. az aks create --resource-group marcy-aks --name kubelive --node-count 1 --generate-ssh-keys
