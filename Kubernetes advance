@@ -88,3 +88,10 @@ spec:
 
 #Change environment in kubectl
 kubectl config use-context "environment name"
+=================================================================
+#Deploy a java app to kubernetes
+1. kubectl create -f deployment.yaml
+
+#create a service
+2. kubectl expose deployment/springapp --type="NodePort" --port 8080
+3. kubectl describe services/springapp
