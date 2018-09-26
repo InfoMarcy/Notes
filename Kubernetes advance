@@ -3,6 +3,8 @@
 
 # see the master node
 2. kubectl get nodes
+#Check the component status
+2. kubectl get cs
 
 #We create a Deployment configuration with the following command:
 3. kubectl run employee-service-microservicio --image=infomarcy/employee-service-microservicio --port=8080
