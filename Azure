@@ -1,15 +1,17 @@
 #Azure CLI
 1. az login
 1. az provider register -n Microsoft.ContainerService
+#Check Microsoft Container service
+1. az provider show -n Microsoft.ContainerService
 
 # create a resource group
-2. az group create --name marcy-aks --locatino eastus
+2. az group create --name java-microservice-resource-group-aks --location eastus
 
 #check the resource group
 3. az group list
 
 #create a new kubernetes cluster with one node (kubelive is the cluster name)
-4. az aks create --resource-group marcy-aks --name kubelive --node-count 1 --generate-ssh-keys
+4. az aks create --resource-group java-microservice-resource-group-aks --name kubelive --node-count 1 --generate-ssh-keys
 
 #show us the available clusters
 5. az aks list
@@ -22,7 +24,7 @@ cd .kube/
 ls
 
 # kube Configuration => everything you need to kube CTL to talk to the endpoint will be configure (kubelive is the cluster name)
-7. az aks get-credentials --resource-group marcy-aks --name kubelive
+7. az aks get-credentials --resource-group java-microservice-resource-group-aks --name kubelive
 
 #get kubernetes nodes
 8. kubectl get nodes
