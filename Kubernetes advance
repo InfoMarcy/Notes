@@ -34,7 +34,7 @@
  11.  kubectl get deployments
  
  #let’s expose our application to the outside world:
- 12. kubectl expose deployment/employee-service-microservicio --type="NodePort" --port 8080
+ 12. kubectl expose deployment/employee-service-microservicio --type="NodePort" --port
 
 #The application is exposed on a certain port, and in order to know this port
 13. kubectl describe services/employee-service-microservicio
@@ -84,3 +84,7 @@ spec:
 #upload a java image on docker to docker hub => first tag the image with the name of the repo
 3. docker tag employee-service-microservicio infomarcy/employee-service-microservicio
 4. docker push infomarcy/employee-service-microservicio 
+
+
+#Change environment in kubectl
+kubectl config use-context "environment name"
