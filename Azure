@@ -1,13 +1,18 @@
 #Azure CLI
 1. az provider register -n Microsoft.ContainerService
+
 # create a resource group
-2. az group create --name marcy-aks --location eastus
+2. az group create --name marcy-aks --locatino eastus
+
 #check the resource group
 3. az group list
+
 #create a new kubernetes cluster with one node (kubelive is the cluster name)
 4. az aks create --resource-group marcy-aks --name kubelive --node-count 1 --generate-ssh-keys
+
 #show us the available clusters
 5. az aks list
+
 # cube CTL is what we are going to use to talk  to the kubernetes cluster
 6. az aks install-cli
 
@@ -44,3 +49,13 @@ ls
 
 #Upgrade the kubernetes version
 16.az aks upgrade  
+
+#set the location
+17. az configure -d group=java_demo location=eastus
+
+#create a secure private registry
+18. az acr create --admin-enabled --resource-group marcy-aks --name javaapp --sku Basic
+
+#export registry credentials
+19. export DOCKER_REGISTRY=$(az acr show --name javaapp --query loginServer --output tsv)
+19.
