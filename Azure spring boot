@@ -1,0 +1,11 @@
+#Test you app locally with maven
+1. mvn package spring-boot:run
+
+#Create a resource group for the Azure resources
+2. az group create --name=java-app-kubernetes --location=eastus
+
+#Create a private Azure container registry in the resource group
+3. az acr create --admin-enabled --resource-group java-app-kubernetes --location eastus --name javaappregistry --sku Basic
+
+#Retrieve the password for your container registry from the Azure CLI
+4. az acr credential show --name javaappregistry --query passwords[0]
