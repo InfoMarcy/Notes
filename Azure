@@ -68,7 +68,7 @@ ls
 #deploy java app to docker as an image using maven
 23. mvn package docker:build -DpushImage
 
-#java App pom
+#==============================java App pom==============================================================================
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -109,3 +109,4 @@ ls
 			
 		</plugins>
 	</build>
+#==============================end java App pom==============================================================================
