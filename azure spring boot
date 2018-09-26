@@ -1,0 +1,2 @@
+#Test you app locally with maven
+1. mvn package spring-boot:run
