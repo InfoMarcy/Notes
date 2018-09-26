@@ -11,7 +11,7 @@
 3. az group list
 
 #create a new kubernetes cluster with one node (kubelive is the cluster name)
-4. az aks create --resource-group java-microservice-resource-group-aks --name kubelive --node-count 1 --generate-ssh-keys
+4. az aks create --resource-group java-microservice-resource-group-aks --name cluster1 --node-count 1 --generate-ssh-keys
 
 #show us the available clusters
 5. az aks list
@@ -24,7 +24,7 @@ cd .kube/
 ls
 
 # kube Configuration => everything you need to kube CTL to talk to the endpoint will be configure (kubelive is the cluster name)
-7. az aks get-credentials --resource-group java-microservice-resource-group-aks --name kubelive
+7. az aks get-credentials --resource-group java-microservice-resource-group-aks --name cluster1
 
 #get kubernetes nodes
 8. kubectl get nodes
@@ -34,6 +34,7 @@ ls
 
 #get cluster info
 10. kubectl cluster-info
+
 
 #Deploy an appication
 11. kubectl create -f  app.yaml
