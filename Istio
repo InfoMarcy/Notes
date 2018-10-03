@@ -5,3 +5,7 @@
 #Check the status and make sure all the components are in running state before continuing:
 2. kubectl get pods -n istio-system
 
+#Istio Manual Injection
+Inject the Istio Envoy sidecar into the guestbook pods, and deploy the Guestbook app on to the Kubernetes cluster.
+1. kubectl apply -f <(istioctl kube-inject -f ../v1/guestbook-deployment.yaml)
+2. kubectl apply -f <(istioctl kube-inject -f guestbook-deployment.yaml)
