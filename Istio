@@ -13,4 +13,8 @@ Inject the Istio Envoy sidecar into the guestbook pods, and deploy the Guestbook
 
 
 =======================#Format deployment file with istio configuration=====================================
+#Generate Istio configuration file for our deployment
 1. istioctl kube-inject -f deployment.yaml
+
+# create a new file with the configuration given by the previos command
+2. kubectl apply -f deployment-with-istio.yaml
