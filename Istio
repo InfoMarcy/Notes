@@ -9,3 +9,8 @@
 Inject the Istio Envoy sidecar into the guestbook pods, and deploy the Guestbook app on to the Kubernetes cluster.
 1. kubectl apply -f <(istioctl kube-inject -f ../v1/guestbook-deployment.yaml)
 2. kubectl apply -f <(istioctl kube-inject -f guestbook-deployment.yaml)
+
+
+
+=======================#Format deployment file with istio configuration=====================================
+1. istioctl kube-inject -f deployment.yaml
