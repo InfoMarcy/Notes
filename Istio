@@ -1,5 +1,6 @@
 #Set default namespace with stio-injection=enabled labeled
 1. kubectl label namespace default istio-injection=enabled
+2. kubectl get namespace -L istio-injection
 
 
 #Check the status and make sure all the components are in running state before continuing:
