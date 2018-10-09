@@ -1,8 +1,0 @@
-https://dzone.com/articles/quick-guide-to-microservices-with-kubernetes-sprin
-#Spring Cloud Kubernetes requires access to the Kubernetes API in order to be able to retrieve 
-#list of addresses for pods running for a single service.
-1. kubectl create clusterrolebinding admin --clusterrole=cluster-admin --serviceaccount=default:default
-
-#To apply the configuration to the Kubernetes cluster,
-2. kubectl apply -f mongodb-configmap.yaml
-3. kubectl apply -f mongodb-secret.yaml
