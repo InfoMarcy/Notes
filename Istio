@@ -1,3 +1,7 @@
+https://github.com/kelseyhightower/istio-ingress-tutorial
+
+
+
 #Set default namespace with stio-injection=enabled labeled
 1. kubectl label namespace default istio-injection=enabled
 2. kubectl get namespace -L istio-injection
