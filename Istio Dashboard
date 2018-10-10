@@ -2,3 +2,10 @@
 Setup access to the Jaeger dashboard by using port-forwarding:
 1. kubectl port-forward -n istio-system $(kubectl get pod -n istio-system -l app=jaeger -o jsonpath='{.items[0].metadata.name}') 16686:16686 &
 2. http://localhost:16686.
+
+
+
+#ServiceGraph
+Set up a tunnel to ServiceGraph:
+3. kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=servicegraph -o jsonpath='{.items[0].metadata.name}') 8088:8088 &
+5. http://localhost:8088/dotviz
