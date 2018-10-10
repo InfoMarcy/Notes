@@ -72,3 +72,71 @@ data:
   mesh: |-
     discoveryAddress: istio-pilot:8080
     ingressService: istio-ingress
+
+Create the Istio Pilot Deployment
+Create the istio-pilot deployment:
+5. kubectl apply -f deployments/istio-pilot.yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: istio-pilot
+spec:
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        alpha.istio.io/sidecar: ignore
+      labels:
+        istio: pilot
+    spec:
+      serviceAccountName: istio-pilot
+      containers:
+        - name: discovery
+          image: docker.io/istio/pilot:0.1.6
+          env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+          args:
+            - "discovery"
+            - "-v=2"
+          ports:
+            - name: http-discovery
+              containerPort: 8080
+        - name: apiserver
+          image: docker.io/istio/pilot:0.1.6
+          env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+          args:
+            - "apiserver"
+            - "-v=2"
+          ports:
+            - name: http-apiserver
+              containerPort: 8081
+Expose the Istio Pilot Deployment
+Create the istio-pilot service:              
+6. kubectl apply -f services/istio-pilot.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    istio: pilot
+  name: istio-pilot
+spec:
+  ports:
+    - name: http-apiserver
+      port: 8081
+    - name: http-discovery
+      port: 8080
+  selector:
+    istio: pilot
+    
+At this point the Istio Pilot service is ready for use:
+
+7. kubectl get pods -l istio=pilot
