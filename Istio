@@ -19,3 +19,56 @@ Inject the Istio Envoy sidecar into the guestbook pods, and deploy the Guestbook
 
 # create a new file with the configuration given by the previos command
 2. kubectl apply -f deployment-with-istio.yaml
+
+
+#Create the Istio Pilot Service Account and Cluster Role
+1. kubectl apply -f istio-pilot.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: istio-pilot
+  
+
+#Create the istio-pilot cluster role:
+2. kubectl apply -f clusterroles/istio-pilot.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: istio-pilot
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps", "endpoints", "pods", "services"]
+    verbs: ["*"]
+  - apiGroups: ["extensions"]
+    resources: ["thirdpartyresources", "thirdpartyresources.extensions", "ingresses"]
+    verbs: ["*"]
+  - apiGroups: ["istio.io"]
+    resources: ["istioconfigs", "istioconfigs.istio.io"]
+    verbs: ["*"]
+    
+    
+ #Create the istio-pilot role binding:
+3. kubectl apply -f rolebindings/istio-pilot.yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: istio-pilot
+subjects:
+  - kind: ServiceAccount
+    name: istio-pilot
+roleRef:
+  kind: ClusterRole
+  name: istio-pilot
+  apiGroup: rbac.authorization.k8s.io
+  
+Create the Istio ConfigMap
+Create the istio ConfigMap which holds the Istio configuration:
+4. kubectl apply -f configmaps/istio.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio
+data:
+  mesh: |-
+    discoveryAddress: istio-pilot:8080
+    ingressService: istio-ingress
