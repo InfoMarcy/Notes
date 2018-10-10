@@ -140,3 +140,124 @@ spec:
 At this point the Istio Pilot service is ready for use:
 
 7. kubectl get pods -l istio=pilot
+
+
+
+Provision the Istio Ingress Controller
+Create the Istio Ingress Service Account and Cluster Role
+Create the istio-ingress service account:
+
+8. kubectl apply -f serviceaccounts/istio-ingress.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: istio-ingress
+
+#Create the istio-ingress cluster role:
+
+9. kubectl apply -f clusterroles/istio-ingress.yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: istio-ingress
+rules:
+  - apiGroups: [""]
+    resources: ["configmaps", "endpoints", "pods", "services"]
+    verbs: ["*"]
+  - apiGroups: ["extensions"]
+    resources: ["thirdpartyresources", "thirdpartyresources.extensions", "ingresses"]
+    verbs: ["*"]
+  - apiGroups: ["istio.io"]
+    resources: ["istioconfigs", "istioconfigs.istio.io"]
+    verbs: ["*"]
+    
+    
+#Create the istio-ingress role binding:
+
+10 .kubectl apply -f rolebindings/istio-ingress.yaml
+
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: istio-ingress
+subjects:
+  - kind: ServiceAccount
+    name: istio-ingress
+roleRef:
+  kind: ClusterRole
+  name: istio-ingress
+  apiGroup: rbac.authorization.k8s.io
+  
+ Create the Istio Ingress DaemonSet
+A DaemonSet will be used to ensure a single Istio Ingress Controller runs on each node in the istio-ingress-pool node pool.
+11. kubectl apply -f daemonsets/istio-ingress.yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: istio-ingress
+spec:
+  template:
+    metadata:
+      annotations:
+        alpha.istio.io/sidecar: ignore
+      labels:
+        istio: ingress
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: dedicated
+                    operator: In
+                    values:
+                      - istio-ingress
+      tolerations:
+        - key: dedicated
+          operator: "Equal"
+          value: istio-ingress
+          effect: "NoSchedule"
+      serviceAccountName: istio-ingress
+      containers:
+        - name: istio-ingress
+          image: docker.io/istio/proxy_debug:0.1.6
+          env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+          args:
+            - "proxy"
+            - "ingress"
+            - "-v=2"
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443
+
+Expose the Istio Ingress Controllers
+Create the istio-ingress service:
+
+11. kubectl apply -f services/istio-ingress.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    istio: ingress
+  name: istio-ingress
+spec:
+  externalTrafficPolicy: Local
+  ports:
+    - name: http
+      port: 80
+    - name: https
+      port: 443
+  selector:
+    istio: ingress
+  type: LoadBalancer
+  
+#At this point the Istio Ingress Controllers are ready to receive traffic:
+
+12kubectl get pods -l istio=ingress
