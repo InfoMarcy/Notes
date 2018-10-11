@@ -6,10 +6,11 @@ Execute the following command to determine if your Kubernetes cluster is running
 4. export GATEWAY_URL=$(kubectl get po   -n istio-system -o 'jsonpath={.items[0].status.hostIP}'):$(kubectl get svc istio-ingressgateway -n istio-system -o jsonpath={.spec.ports[0].nodePort})
 5. echo $GATEWAY_URL 
 
+# Find the istio-ingresgateway pods that are tagged with the label “istio=ingressgateway”. 
+6. kubectl get pod -n istio-system -l istio=ingressgateway -o name
 
-export GATEWAY_URL=$(kubectl get po   -n istio-system -o 'jsonpath={.items[0].status.hostIP}'):$(kubectl get svc istio-ingressgateway -n istio-system -o jsonpath={.spec.ports[0].nodePort})
-
-
+#Istio configures Envoy to listen for the admin portion on port 15000
+kubectl -n istio-system port-forward istio-ingressgateway-7f4dd7d699-dfdq8 15000
 
 To access your application, you need to create an Istio Gateway to connect all the microservices and access it. Thus, do:
 1. ---
