@@ -2,7 +2,12 @@ Execute the following command to determine if your Kubernetes cluster is running
 1. kubectl get svc istio-ingressgateway -n istio-system
 2. kubectl describe  gateway java-app-gateway
 3. kubectl get svc -n istio-system | grep istio-ingress
-4. echo $(kubectl get svc istio-ingressgateway -n istio-system -o jsonpath='{.spec.ports[0].nodePort}')
+
+4. export GATEWAY_URL=$(kubectl get po   -n istio-system -o 'jsonpath={.items[0].status.hostIP}'):$(kubectl get svc istio-ingressgateway -n istio-system -o jsonpath={.spec.ports[0].nodePort})
+5. echo $GATEWAY_URL 
+
+
+export GATEWAY_URL=$(kubectl get po   -n istio-system -o 'jsonpath={.items[0].status.hostIP}'):$(kubectl get svc istio-ingressgateway -n istio-system -o jsonpath={.spec.ports[0].nodePort})
 
 
 
