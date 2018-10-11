@@ -1,0 +1,51 @@
+To access your application, you need to create an Istio Gateway to connect all the microservices and access it. Thus, do:
+1. ---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: java-app-gateway
+spec:
+  selector:
+    istio: ingressgateway  # use istio default controller
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: microservice-main-routes
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - java-app-gateway
+  http:
+    - match:
+        - uri:
+            exact: /
+      route:
+        - destination:
+            host: hr-core-service
+            port:
+              number: 8080
+    - match:
+        - uri:
+            prefix: /verify/.*
+      route:
+        - destination:
+            host: hr-core-service
+            port:
+              number: 8080
+    - match:
+        - uri:
+            prefix: /create-accounts/.*
+      route:
+        - destination:
+            host: hr-account-service
+            port:
+              number: 9090
