@@ -30,3 +30,25 @@ spec:
 EOF
 
 6. kubectl get ingress
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: java-app-ingress
+spec:
+  tls:
+  - hosts:
+    - java.app.com
+    secretName: java-secret
+  rules:
+  - host: java.app.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hr-core-service
+          servicePort: 80
+      - path: /create-account/*
+        backend:
+          serviceName: hr-account-service
+          servicePort: 80
