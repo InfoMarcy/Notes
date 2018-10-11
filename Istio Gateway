@@ -21,5 +21,9 @@ Execute the following command to determine if your Kubernetes cluster is running
 # Delete the virtual service bookinfo
 10. istioctl delete virtualservice bookinfo
 
-#Istio configures Envoy to listen for the admin portion on port 15000
-kubectl -n istio-system port-forward istio-ingressgateway-7f4dd7d699-dfdq8 15000
+
+#Get gateway
+11. kubectl get  gateway
+11. kubectl get  ingress
+13. kubectl get  virtualservice
+kubectl describe  gateway java-app-gateway
