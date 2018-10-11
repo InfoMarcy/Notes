@@ -1,3 +1,8 @@
+Execute the following command to determine if your Kubernetes cluster is running in an environment that supports external load balancers:
+1. kubectl get svc istio-ingressgateway -n istio-system
+2. kubectl describe  gateway java-app-gateway
+
+
 
 To access your application, you need to create an Istio Gateway to connect all the microservices and access it. Thus, do:
 1. ---
