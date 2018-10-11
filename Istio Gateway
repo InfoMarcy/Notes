@@ -9,6 +9,14 @@ Execute the following command to determine if your Kubernetes cluster is running
 # Find the istio-ingresgateway pods that are tagged with the label “istio=ingressgateway”. 
 6. kubectl get pod -n istio-system -l istio=ingressgateway -o name
 
+#If your cluster is running in an environment that supports external load balancers, use the ingress’ external address:
+7. kubectl get ingress java-app-ingress -o wide
+8. export INGRESS_URL=192.168.65.3
+
+
+#The VirtualService looks correct. Make sure that you have only one VirtualService for the host 
+9. istioctl get all --all-namespaces
+
 #Istio configures Envoy to listen for the admin portion on port 15000
 kubectl -n istio-system port-forward istio-ingressgateway-7f4dd7d699-dfdq8 15000
 
