@@ -23,7 +23,8 @@ Prometheus is installed with Grafana. You can view Istio and application metrics
 
 Envoy Dashboard
 # Find the istio-ingresgateway pods that are tagged with the label “istio=ingressgateway”. 
-6. kubectl get pod -n istio-system -l istio=ingressgateway -o name
+10. kubectl get pod -n istio-system -l istio=ingressgateway -o name
 
 #Istio configures Envoy to listen for the admin portion on port 15000
-kubectl -n istio-system port-forward istio-ingressgateway-7f4dd7d699-dfdq8 15000
+11. kubectl -n istio-system port-forward istio-ingressgateway-7f4dd7d699-dfdq8 15000
+12 .http://localhost:15000/listeners
