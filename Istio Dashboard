@@ -26,6 +26,6 @@ Envoy Dashboard
 10. kubectl get pod -n istio-system -l istio=ingressgateway -o name
 
 #Istio configures Envoy to listen for the admin portion on port 15000
-11. kubectl -n istio-system port-forward istio-ingressgateway-7f4dd7d699-dfdq8 15000
+11. kubectl -n istio-system port-forward istio-ingressgateway-688865c5f7-lwcs2 15000
 12 .http://localhost:15000/listeners
 13. http://localhost:15000/config_dump
