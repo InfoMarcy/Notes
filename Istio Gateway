@@ -26,4 +26,4 @@ Execute the following command to determine if your Kubernetes cluster is running
 11. kubectl get  gateway
 11. kubectl get  ingress
 13. kubectl get  virtualservice
-kubectl describe  gateway java-app-gateway
+14. kubectl describe  gateway java-app-gateway
