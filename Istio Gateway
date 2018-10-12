@@ -40,4 +40,5 @@ Execute the following command to determine if your Kubernetes cluster is running
 3. export INGRESS_URL=192.168.65.3
 
 #Get virtual service details
-$ kubectl get virtualservices -o yaml
+1. kubectl get virtualservices -o yaml
+2. kubectl get destinationrules -o yaml
