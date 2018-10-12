@@ -27,3 +27,8 @@ Execute the following command to determine if your Kubernetes cluster is running
 11. kubectl get  ingress
 13. kubectl get  virtualservice
 14. kubectl describe  gateway java-app-gateway
+
+
+#Get an overview of your mesh
+15. istioctl proxy-status
+15 . istioctl proxy-status <Proxy name>
