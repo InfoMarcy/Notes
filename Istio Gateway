@@ -42,3 +42,10 @@ Execute the following command to determine if your Kubernetes cluster is running
 #Get virtual service details
 1. kubectl get virtualservices -o yaml
 2. kubectl get destinationrules -o yaml
+
+
+Determining the ingress IP and ports
+1. kubectl get svc istio-ingressgateway -n istio-system
+2.  export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+3.  export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+4. export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
