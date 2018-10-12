@@ -45,6 +45,7 @@ Execute the following command to determine if your Kubernetes cluster is running
 
 
 Determining the ingress IP and ports
+https://istio.io/docs/tasks/traffic-management/ingress/#determining-the-ingress-ip-and-ports
 1. kubectl get svc istio-ingressgateway -n istio-system
 2.  export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 3.  export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
