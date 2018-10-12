@@ -32,13 +32,6 @@ spec:
         - name: mongo
           containerPort: 27017
           hostPort: 27017
-        volumeMounts:
-            - name: mongo-persistent-storage
-              mountPath: /data/db
-      volumes:
-        - name: mongo-persistent-storage
-          hostPath:
-                path: /data/storage/mongodb
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
