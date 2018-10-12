@@ -34,4 +34,7 @@ Execute the following command to determine if your Kubernetes cluster is running
 15. istioctl proxy-status
 15 . istioctl proxy-status <Proxy name>
 
-
+#Get Ingress
+1. kubectl get  ingress
+2. kubectl get ingress java-app-ingress -o wide
+3. export INGRESS_URL=192.168.65.3
