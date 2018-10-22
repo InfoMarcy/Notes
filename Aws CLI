@@ -1,0 +1,2 @@
+#Get the api gateway ID
+1. aws apigateway get-rest-apis
