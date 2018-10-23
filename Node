@@ -1,1 +1,6 @@
-
+#Export a module to be use on another module
+var url = 'http://apideusuario-microprofile.a3c1.starter-us-west-1.openshiftapps.com/employees/username/usuario_strong';
+function log(message){
+    console.log(message);
+}
+module.export.log = log;
