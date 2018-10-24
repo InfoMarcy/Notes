@@ -55,3 +55,6 @@ module.exports = Logger;
 2. npm i underscore
 # To find the functionalities of undercore visit => https://underscorejs.org/
 
+#Install mongoose which is used to store our data on mongodb
+3. npm i mongoose
+
