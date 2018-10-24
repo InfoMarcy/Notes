@@ -79,3 +79,8 @@ module.exports = Logger;
 9. npm-check-updates
 // to update the dependencies run
 10. npm i 
+
+
+#Dependencies to anylise our javascript code and look for potencials errors
+11. npm i jshint --save-dev
+
