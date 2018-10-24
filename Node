@@ -87,7 +87,12 @@ module.exports = Logger;
 # To unistall a package using npm
 12. npm un <package name>
 
-
+# Install a package globally
+13. npm i -g npm
+#Check all the install global package outdated
+14. npm  -g outdated
+# unistall a global package
+15. npm  un -g <package name>
 
 
 
