@@ -20,7 +20,14 @@ app.listen(port, () => console.log(`Listening on port ${port}...`));
 # Install a node package  called joi which validate inputs
 7. npm i -g joi
 
+# Install a node package  called helmet => https://github.com/helmetjs/helmet
+8. npm install helmet --save
 
+# Install a node package  called morgan which log every http request you make to the server
+8. npm install helmet --save
+
+//set environment variable on cm
+export NODE_ENV=production
 
 #====================================== index.js FILE =============================================================
 
