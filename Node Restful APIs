@@ -48,3 +48,6 @@ app.listen(port, () => console.log(`Listening on port ${port}...`));
 
 # To export a port on mac cm
 5. export PORT=5000
+
+# Install a node package  called joi which validate inputs
+7. npm i -g joi
