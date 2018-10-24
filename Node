@@ -67,3 +67,13 @@ module.exports = Logger;
 
 # See the list of all the versions of the dependencies of your application
 4. npm list --depth=0
+5. npm view mongoose dependencies
+
+#Install a specific version of node dependecy package
+6. npm i mongoose@2.4.2
+
+#Check with dependencies are outdated
+7. npm outdated
+# To update it to the latest version
+8. npm i -g npm-ckeck-updates
+
