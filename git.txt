@@ -29,3 +29,7 @@ git remote add origin http://10.50.109.50/megarcial/fastlane-ios-app.git
 git add .
 git commit -m "fastlane"
 git push -u origin master
+
+
+# To ignore a folder from git create a file in the root of the project called => .gitingnore
+# and put the name of the folder which you dont want to include in your repository, example => node_modules/
