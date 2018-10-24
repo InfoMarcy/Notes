@@ -61,3 +61,6 @@ module.exports = Logger;
 #When transfering and storing the node project don´t include the node_modules folder
 #to restore the dependencies of a node project run on terminal
 3. npm i
+
+# To ignore a folder from git create a file in the root of the project called => .gitingnore
+# and put the name of the folder which you dont want to include in your repository, example => node_modules/
