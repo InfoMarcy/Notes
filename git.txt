@@ -31,5 +31,5 @@ git commit -m "fastlane"
 git push -u origin master
 
 
-# To ignore a folder from git create a file in the root of the project called => .gitingnore
+# To ignore a folder from git create a file in the root of the project called => .gitignore
 # and put the name of the folder which you dont want to include in your repository, example => node_modules/
