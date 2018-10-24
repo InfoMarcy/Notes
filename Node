@@ -84,3 +84,10 @@ module.exports = Logger;
 #Dependencies to anylise our javascript code and look for potencials errors
 11. npm i jshint --save-dev
 
+# To unistall a package using npm
+12. npm un <package name>
+
+
+
+
+
