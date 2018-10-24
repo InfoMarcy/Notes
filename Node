@@ -101,3 +101,9 @@ module.exports = Logger;
 
 module.exports.add = function(a, b) {return a + b};
 module.exports.multiply = function(a, b) {return a * b};
+
+
+#update the version to publish
+1. npm version minor
+2. npm publish
+
