@@ -94,5 +94,9 @@ module.exports = Logger;
 # unistall a global package
 15. npm  un -g <package name>
 
+#pusblish a library to npm
+1. create an account
+2. go to the folder of the project
+3. npm publish
 
 
