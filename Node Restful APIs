@@ -2,38 +2,6 @@
 1. npm init --yes
 2. npm i express
 
-#index.js
-// load the express framework module
-const express = require('express');
-// call the express function which return an object
-const app = express();
-
-//http GET request
-app.get('/', (req, res) => {
-res.send('Hello World!');
-});
-
-// http get without parameters
-app.get('/api/courses', (req, res) => {
-res.send([1, 2, 3, 4, 5]);
-});
-
-// http get with parameters
-app.get('/api/courses/:id', (req, res) => {
-    res.send(req.params.id);
-    });
-
-    // http get with  multiples parameters => http://localhost:5000/api/post/2018/1
-app.get('/api/post/:year/:month', (req, res) => {
-    res.send(req.params);
-  });
-
-
-        // http get with  multiples parameters => http://localhost:5000/api/post/2018/1?sortBy=name
-app.get('/api/post/:year/:month', (req, res) => {
-    res.send(req.query);
-    });
-
 // Environment variable
 const port = process.env.PORT || 3000;
 
@@ -51,3 +19,9 @@ app.listen(port, () => console.log(`Listening on port ${port}...`));
 
 # Install a node package  called joi which validate inputs
 7. npm i -g joi
+
+
+
+#====================================== index.js FILE =============================================================
+
+
