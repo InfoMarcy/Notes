@@ -13,15 +13,38 @@ app.get('/', (req, res) => {
 res.send('Hello World!');
 });
 
+// http get without parameters
 app.get('/api/courses', (req, res) => {
-res.send([1, 2, 3, 4]);
+res.send([1, 2, 3, 4, 5]);
 });
+
+// http get with parameters
+app.get('/api/courses/:id', (req, res) => {
+    res.send(req.params.id);
+    });
+
+    // http get with  multiples parameters => http://localhost:5000/api/post/2018/1
+app.get('/api/post/:year/:month', (req, res) => {
+    res.send(req.params);
+  });
+
+
+        // http get with  multiples parameters => http://localhost:5000/api/post/2018/1?sortBy=name
+app.get('/api/post/:year/:month', (req, res) => {
+    res.send(req.query);
+    });
+
+// Environment variable
+const port = process.env.PORT || 3000;
 
 
 //listen on a given port
-app.listen(3000, () => console.log('Listening on port 3000...'));
+app.listen(port, () => console.log(`Listening on port ${port}...`));
 
 # Install a node package  called nodemon which is short for node monitor (In this case we dont have to stop the server manually every time)
 3. npm i -g nodemon
 #Now we run our application using nodemon
 4. nodemon index.js
+
+# To export a port on mac cm
+5. export PORT=5000
