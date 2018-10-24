@@ -47,3 +47,8 @@ class Logger extends EventEmitter {
 }
 
 module.exports = Logger;
+
+
+
+#Create a package.json using npm
+npm init --yes
