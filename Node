@@ -58,3 +58,6 @@ module.exports = Logger;
 #Install mongoose which is used to store our data on mongodb
 3. npm i mongoose
 
+#When transfering and storing the node project don´t include the node_modules folder
+#to restore the dependencies of a node project run on terminal
+3. npm i
