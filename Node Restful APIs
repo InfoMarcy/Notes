@@ -21,4 +21,5 @@ res.send([1, 2, 3, 4]);
 //listen on a given port
 app.listen(3000, () => console.log('Listening on port 3000...'));
 
-
+# Install a node package  called nodemon which is short for node monitor (In this case we dont have to stop the server manually every time)
+3. npm i -g nodemon
