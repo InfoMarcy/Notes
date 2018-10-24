@@ -8,4 +8,17 @@ const express = require('express');
 // call the express function which return an object
 const app = express();
 
+//http GET request
+app.get('/', (req, res) => {
+res.send('Hello World!');
+});
+
+app.get('/api/courses', (req, res) => {
+res.send([1, 2, 3, 4]);
+});
+
+
+//listen on a given port
+app.listen(3000, () => console.log('Listening on port 3000...'));
+
 
