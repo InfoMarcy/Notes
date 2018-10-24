@@ -51,4 +51,7 @@ module.exports = Logger;
 
 
 #Create a package.json using npm
-npm init --yes
+1. npm init --yes
+2. npm i underscore
+# To find the functionalities of undercore visit => https://underscorejs.org/
+
