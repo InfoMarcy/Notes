@@ -76,4 +76,6 @@ module.exports = Logger;
 7. npm outdated
 # To update it to the latest version
 8. npm i -g npm-ckeck-updates
-
+9. npm-check-updates
+// to update the dependencies run
+10. npm i 
