@@ -1,1 +1,11 @@
+#Express Framework => http://expressjs.com/en/4x/api.html#req
+1. npm init --yes
+2. npm i express
+
+#index.js
+// load the express framework module
+const express = require('express');
+// call the express function which return an object
+const app = express();
+
 
