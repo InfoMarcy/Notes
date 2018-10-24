@@ -99,4 +99,5 @@ module.exports = Logger;
 2. go to the folder of the project
 3. npm publish
 
-
+module.exports.add = function(a, b) {return a + b};
+module.exports.multiply = function(a, b) {return a * b};
