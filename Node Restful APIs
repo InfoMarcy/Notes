@@ -26,6 +26,18 @@ app.listen(port, () => console.log(`Listening on port ${port}...`));
 # Install a node package  called morgan which log every http request you make to the server
 8. npm install helmet --save
 
+
+# Install a node package  called config  which lets you save the configuration for your project
+9. npm i config
+
+
+# Install a node package  called config  which lets you debug your application
+10. npm i debug
+
+
+# Install a node package  called pug  which lets render html markup
+11. npm i pug
+
 //set environment variable on cm
 export NODE_ENV=production
 
