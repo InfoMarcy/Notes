@@ -9,3 +9,9 @@ Install on Visual Code
 
 // Create a React APP
 1.  create-react-app react-app
+
+// Run React App
+2. npm start
+
+// Use to convert javascript code with html
+3. https://babeljs.io/repl
