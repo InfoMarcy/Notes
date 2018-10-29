@@ -1,6 +1,11 @@
 // Install React
 1. sudo npm i -g react
+2. npm install -g create-react-app
 
 Install on Visual Code 
 1. Simple React Snippets
 2. Simple React Snippets
+
+
+// Create a React APP
+1.  create-react-app react-app
