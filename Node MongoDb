@@ -5,3 +5,8 @@ Install node pakage called mongoose
 
 Install fwan libary to implement mongo Transaction using two phase Commit
 2. npm i fawn
+
+const mongoose = require('mongoose');
+const Fawn = require('fawn');
+//load Mongoose on fwan
+Fawn.init(mongoose);
