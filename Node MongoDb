@@ -2,3 +2,6 @@ Create a nodejs Project
 1. npm init --yes
 Install node pakage called mongoose
 1. npm i mongoose
+
+Install fwan libary to implement mongo Transaction using two phase Commit
+2. npm i fawn
