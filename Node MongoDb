@@ -3,6 +3,23 @@ Create a nodejs Project
 Install node pakage called mongoose
 1. npm i mongoose
 
+
+#Library to validate mongodb object Id
+2.  npm i joi-objectid
+
+const Joi = require('joi');
+ Joi.objectId = require('joi-objectid')(Joi);
+
+
+function validateRental(rental) {
+  const schema = {
+    customerId: Joi.objectId().required(),
+    movieId: Joi.objectId().required()
+  };
+
+  return Joi.validate(rental, schema);
+}
+
 Install fwan libary to implement mongo Transaction using two phase Commit
 2. npm i fawn
 
