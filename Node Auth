@@ -18,6 +18,9 @@ const _ = require('lodash');
    
    #Library for hashing passwords
    npm i bcrypt
+   
+   #Install json web token library
+   npm i jsonwebtoken
     
     
     
