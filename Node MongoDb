@@ -41,7 +41,7 @@ Fawn.init(mongoose);
      }
  
 
-// MongoDb Id 12 b bytes
+// MongoDb Id 12 bytes
 // _id: 5bed940d40a61eb302211cc3
 // 4 first bytes: timestamp
 // 3 next bytes : machine identifier
