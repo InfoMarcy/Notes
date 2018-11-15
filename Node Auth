@@ -20,7 +20,11 @@ const _ = require('lodash');
    npm i bcrypt
    
    #Install json web token library
-   npm i jsonwebtoken
+ 1.  npm i jsonwebtoken
+    const jwt = require('jsonwebtoken');
     
     
+     const token  = jwt.sign({ _id: user._id}, 'jwtprivatekey'); 
     
+#Library for storing environment variables
+1. npm i config
