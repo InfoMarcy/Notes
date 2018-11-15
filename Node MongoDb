@@ -47,3 +47,8 @@ Fawn.init(mongoose);
 // 3 next bytes : machine identifier
 // 2 bytes:processs identifier
 // 3 bytes: counter
+
+
+1 byte = 8 bits
+2 ^ 8 = 256
+2 ^ 24 = 16M
