@@ -1,2 +1,12 @@
 Lodash Library for working with objects
 1. npm i lodash
+const _ = require('lodash');
+
+  // create the user
+   user = new User(_.pick(req.body, ['name', 'email', 'password']))
+
+   //save the user
+   await user.save();
+
+  // return the new user
+    res.send(_.pick(user, ['_id', 'name', 'email']));
