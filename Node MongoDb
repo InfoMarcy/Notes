@@ -52,3 +52,15 @@ Fawn.init(mongoose);
 1 byte = 8 bits
 2 ^ 8 = 256
 2 ^ 24 = 16M
+
+
+const mongoose = require('mongoose');
+const id = new mongoose.Types.ObjectId();
+
+
+// get the time in which the id was created
+console.log(id.getTimestamp());
+
+
+const isValid = mongoose.Types.ObjectId.isValid('1234');
+console.log(isValid);
