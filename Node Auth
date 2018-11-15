@@ -1,4 +1,4 @@
-Lodash Library for working with objects
+#Lodash Library for working with objects
 1. npm i lodash
 const _ = require('lodash');
 
@@ -10,3 +10,14 @@ const _ = require('lodash');
 
   // return the new user
     res.send(_.pick(user, ['_id', 'name', 'email']));
+    
+    
+    #Complex Passwords => joi password complexity
+    npm i joi-password-complexity
+    
+   
+   #Library for hashing passwords
+   npm i bcrypt
+    
+    
+    
