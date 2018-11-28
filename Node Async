@@ -41,3 +41,10 @@ module.exports = function(err, req, res, next){
 // create a new transport to store the log on a file
 winston.add( new winston.transports.File({ filename: 'logfile.log', level: 'error' }));
 winston.add( new winston.transports.MongoDB({ db: 'mongodb://localhost/nodejs_db' }));
+
+
+handler unhandler exception console in a node process the server
+process.on('uncaughtException', (ex)=> {
+    console.log('We got an uncaught exception');
+    winston.log('error', ex.message, ex);
+});
