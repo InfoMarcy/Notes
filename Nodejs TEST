@@ -5,3 +5,7 @@ JEST
  "scripts": {
     "test": "jest"
   },
+  
+  # Run the Test
+  2. npm test
+  
