@@ -1,3 +1,7 @@
 JEST
 1. npm i jest --save-dev
-df
+
+#under package.json
+ "scripts": {
+    "test": "jest"
+  },
