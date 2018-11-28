@@ -36,3 +36,7 @@ router.post("/", auth, aysncMiddleware(async (req, res) => {
     // send back the responds
     res.send(genre);
 }));
+
+//install npm module to remove the aysncMiddleware 
+3. npm i express-async-errors
+on index.js add => require('express-async-errors');
