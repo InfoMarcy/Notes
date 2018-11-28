@@ -43,8 +43,10 @@ winston.add( new winston.transports.File({ filename: 'logfile.log', level: 'erro
 winston.add( new winston.transports.MongoDB({ db: 'mongodb://localhost/nodejs_db' }));
 
 
-handler unhandler exception console in a node process the server
-process.on('uncaughtException', (ex)=> {
-    console.log('We got an uncaught exception');
-    winston.log('error', ex.message, ex);
+//helper method on winston
+winston.handleExceptions( new winston.transports.File({ filename: 'uncaughtException.log', level: 'info' }));
+
+process.on('unhandledRejection', (ex)=> {
+  throw ex;
 });
+
