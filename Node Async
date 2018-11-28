@@ -1,42 +1,10 @@
 1. npm init --yes
 
 
-2. // remove try catch blocks 
-module.exports = function (handler){
-    return async (req, res, next) => {
-      try {
-        await handler(req, res);
-      } catch (ex) {
-        next(ex);
-      }
-    }
-  
-  }
-  
-  
-  const aysncMiddleware = require("../middleware/async");
-  
-  // route to get all the Genres from the database
-router.get("/", aysncMiddleware(async (req, res, next) => {
-    const genres = await Genre.find().sort("name");
-    res.send(genres);
-}));
-
-
-// create a record in the database
-router.post("/", auth, aysncMiddleware(async (req, res) => {
-  // validate the body of the request
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-    // set the genre values
-    let genre = new Genre({ name: req.body.name });
-    // save to database
-    genre = await genre.save();
-
-    // send back the responds
-    res.send(genre);
-}));
-
-//install npm module to remove the aysncMiddleware 
+//install npm module to remove the aysncMiddleware  and the try catch blocks
 3. npm i express-async-errors
 on index.js add => require('express-async-errors');
+
+Log the exception that are thrown in our app.
+3.npm i winston
+
