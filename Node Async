@@ -8,3 +8,28 @@ on index.js add => require('express-async-errors');
 Log the exception that are thrown in our app.
 3.npm i winston
 
+//library for working with  logs
+const winston = require('winston');
+
+// create a new transport to store the log on a file
+winston.add( new winston.transports.File({ filename: 'logfile.log', level: 'error' }));
+
+
+
+4. error middleware
+
+//library for working with  logs
+const winston = require('winston');
+// error handler
+module.exports = function(err, req, res, next){
+    //error
+    //warn
+    //info
+    //verbose
+    //debug
+    //silly
+    winston.error(err.message, err);
+
+    //Log the exception
+    res.status(500).send("Something went wrong");
+};
