@@ -36,3 +36,8 @@ module.exports = function(err, req, res, next){
 
 # Log messages to mongodb
 5. npm i winston-mongodb
+
+
+// create a new transport to store the log on a file
+winston.add( new winston.transports.File({ filename: 'logfile.log', level: 'error' }));
+winston.add( new winston.transports.MongoDB({ db: 'mongodb://localhost/nodejs_db' }));
