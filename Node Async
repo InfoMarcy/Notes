@@ -33,3 +33,6 @@ module.exports = function(err, req, res, next){
     //Log the exception
     res.status(500).send("Something went wrong");
 };
+
+# Log messages to mongodb
+5. npm i winston-mongodb
