@@ -3,8 +3,9 @@ JEST
 
 #under package.json
  "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll"
   },
+
   
   # Run the Test
   2. npm test
