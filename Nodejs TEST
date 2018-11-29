@@ -3,7 +3,7 @@ JEST
 
 #under package.json
  "scripts": {
-    "test": "jest --watchAll"
+     "test": "jest --watchAll --verbose"
   },
 
   
