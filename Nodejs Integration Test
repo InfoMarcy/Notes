@@ -1,2 +1,6 @@
+  "scripts": {
+    "test": "jest --watchAll --verbose --coverage"
+  },
+
 #Install library for integration test
 1. npm i supertest --save-dev
