@@ -34,4 +34,5 @@ http://apex.run/
 
 #create an APEX project
 8. apex init
+9. apex deploy
 
