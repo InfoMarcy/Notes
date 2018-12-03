@@ -30,3 +30,8 @@ let generatedNumber = Math.floor(Math.random() * max) + min;
 
 7. Install APEX to upload lambda code to AWS
 http://apex.run/
+
+
+#create an APEX project
+8. apex init
+
