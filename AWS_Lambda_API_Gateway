@@ -1,0 +1,9 @@
+# Accept query strings on API Gateway
+1. Go to => Integration Request
+2. select => Mapping Templates 
+3. Add mapping template  => Content-Type => application/json
+4.
+{
+"min": "$input.params('min')",
+"max": "$input.params('max')"
+}
