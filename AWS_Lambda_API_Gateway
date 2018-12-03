@@ -13,19 +13,16 @@
 
 6. lambda function example
 'use strict';
-console.log('loading hello_world function');
+console.log('loading random number function');
 
 exports.handler = async (event) => {
 let min = parseInt(event.min);
 let max = parseInt(event.max);
 
 let generatedNumber = Math.floor(Math.random() * max) + min;
-
-    // TODO implement
     const response = {
         statusCode: 200,
         body: JSON.stringify(generatedNumber),
     };
     return generatedNumber;
-
 };
