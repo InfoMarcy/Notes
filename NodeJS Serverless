@@ -34,3 +34,7 @@ plugins:
  
  # Run our nodejs with serverless
  4. sls offline start
+
+#Deploy to AWS
+1. sls deploy
+2. sls deploy -s production -f app
