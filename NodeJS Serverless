@@ -19,3 +19,10 @@ module.exports.app = async (event, context) => {
     }),
   };
 };
+
+#Simple Rest Endpoint
+#Serverless online
+1. npm init -y
+
+#Serverless nodejs package for runtime
+2.npm i --save-dev serverless-offline
