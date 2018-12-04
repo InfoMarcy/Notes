@@ -38,3 +38,10 @@ plugins:
 #Deploy to AWS #function name => app
 1. sls deploy
 2. sls deploy -s production -f app
+3. sls logs -f app -s dev --startTime 10m
+
+#Remove a function
+1. sls remove -s dev
+
+
+#################################REST API with pre-written Serverless Components#######################################
