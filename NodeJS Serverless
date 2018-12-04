@@ -55,3 +55,9 @@ https://serverless.com/blog/how-create-rest-api-serverless-components/
 1. sls create -t aws-nodejs --name serverless-rest-api-app
 2. npm init -y
 3. sls logs -f <name of the function>
+
+
+######################Library to generate an unique id ####################################
+1. npm i  uuid --save
+
+const uuidv1 = require(uuid/v1);
