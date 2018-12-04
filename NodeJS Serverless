@@ -33,4 +33,4 @@ plugins:
  -serverlesss-offline
  
  # Run our nodejs with serverless
- 4. serverless offline
+ 4. sls offline start
