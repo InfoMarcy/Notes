@@ -26,3 +26,8 @@ module.exports.app = async (event, context) => {
 
 #Serverless nodejs package for runtime
 2.npm i --save-dev serverless-offline
+
+#serverless.yaml
+service: aws-nodejs # NOTE: update this with your service name
+plugins: 
+ -serverlesss-offline
