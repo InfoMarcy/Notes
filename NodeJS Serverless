@@ -1,1 +1,4 @@
-sls create -t aws-nodejs
+#Create a serverless project
+1. sls create -t aws-nodejs
+#execute the serverless project
+2. sls invoke local -f app
