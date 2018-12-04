@@ -47,3 +47,5 @@ plugins:
 #################################REST API with pre-written Serverless Components#######################################
 https://serverless.com/blog/how-create-rest-api-serverless-components/
 1. npm install --global serverless-components
+2. components deploy
+3. components remove
