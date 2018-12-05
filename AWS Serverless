@@ -1,2 +1,4 @@
 #create a new project
 1. sls create -t aws-nodejs -p web-pai && cd web-api
+2. npm init -y 
+3. npm i --save-dev serverless-offline 
