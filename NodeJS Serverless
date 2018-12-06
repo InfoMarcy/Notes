@@ -29,6 +29,9 @@ module.exports.app = async (event, context) => {
 
 #serverless.yaml
 3. service: aws-nodejs # NOTE: update this with your service name
+
+npm i serverless-offline
+
 plugins: 
  -serverlesss-offline
  
