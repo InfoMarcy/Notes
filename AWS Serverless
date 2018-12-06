@@ -9,7 +9,9 @@ plugins:
   - serverless-offline
   
 #Start the app offline  
-5. sls offline start
+5.  sls offline start
+    sls offline start --skipCacheInvalidation
+    
 #Install mongoose
 6. npm i --save mongoose dotenv
 
