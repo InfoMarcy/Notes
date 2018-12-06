@@ -6,3 +6,7 @@
 
 #dar permisos a la carpeta
 sudo chmod -R 777 homebrew/
+
+kill a process
+lsof -i:8000
+kill -9 6741
