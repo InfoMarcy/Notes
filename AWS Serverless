@@ -18,3 +18,5 @@ let generatedNumber = Math.floor(Math.random() * max) + min;
     };
     return generatedNumber;
 };
+
+
