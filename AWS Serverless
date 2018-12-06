@@ -10,6 +10,11 @@ plugins:
   
 #Start the app offline  
 5. sls offline start
+#Install mongoose
+6. npm i --save mongoose dotenv
+
+#Atlas MongoDb Cloud Database
+7. https://cloud.mongodb.com/
 
 #Lambda example
 'use strict';
