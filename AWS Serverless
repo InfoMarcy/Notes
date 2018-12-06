@@ -1,7 +1,15 @@
 #create a new project
 1. sls create -t aws-nodejs -p web-pai && cd web-api
 2. npm init -y 
-3. npm i --save-dev serverless-offline 
+3. npm install --save-dev serverless-dynamodb-local
+4. npm install serverless-offline --save-dev
+
+plugins:
+  - serverless-dynamodb-local
+  - serverless-offline
+  
+#Start the app offline  
+5. sls offline start
 
 #Lambda example
 'use strict';
