@@ -2,3 +2,22 @@
 1. sls create -t aws-nodejs -p web-pai && cd web-api
 2. npm init -y 
 3. npm i --save-dev serverless-offline 
+
+
+'use strict';
+console.log('loading hello_world function');
+
+exports.handler = async (event) => {
+let min = parseInt(event.min);
+let max = parseInt(event.max);
+
+let generatedNumber = Math.floor(Math.random() * max) + min;
+
+    // TODO implement
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify(generatedNumber),
+    };
+    return generatedNumber;
+
+};
