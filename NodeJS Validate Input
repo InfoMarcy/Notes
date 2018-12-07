@@ -1,6 +1,7 @@
 #Instalar la libreria de joi para validar los inputs
 1. npm i joi
-
+#Package for validating object id 
+2. npm i joi-objectid
 
 ################################################# Empleados handler  Joi#################################################
 const Joi = require("joi");
