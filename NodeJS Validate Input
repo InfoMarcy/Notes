@@ -1,2 +1,63 @@
 #Instalar la libreria de joi para validar los inputs
 1. npm i joi
+
+
+################################################# Empleados handler  Joi#################################################
+const Joi = require("joi");
+const { Empleado, validateEmpleado } = require("./models/empleado");
+
+// function to response to the client
+function createResponse(statusCode, message) {
+  return {
+    statusCode: statusCode,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(message)
+  };
+}
+
+// function which create a new record
+module.exports.create = async event => {
+
+  // validate Input with Joi
+  const { error } = validateEmpleado(event.body);
+  if (error) {
+    return createResponse(400, error.details[0].message);
+  }
+
+   // if no errors continue
+  let empleado = new Empleado(JSON.parse(event.body));
+  empleado = await empleado.save();
+  return createResponse(201, empleado);
+};
+
+################################################# Empleados Model #################################################
+const mongoose = require('mongoose');
+const Joi = require('joi');
+
+
+const empleadoSchema = new mongoose.Schema({  
+	  username:String,
+	  nombre:String,
+	  apellido:String,
+	  email:String,
+	  telefono:String,
+     ocupacion:String
+});
+
+function validateEmpleado(empleado) {
+	const schema = {
+		username: Joi.string().min(3).max(50).required(),
+		nombre: Joi.string().min(3).max(50).required(),
+		apellido: Joi.string().min(3).max(50).required(),
+	  email: Joi.string().min(3).max(50).required().email(),
+		telefono: Joi.string().min(10).max(14).required(),
+		ocupacion: Joi.string().min(3).max(50).required()
+	};
+  
+	return Joi.validate(empleado, schema);
+  }
+
+
+//Models class
+exports.Empleado = mongoose.model('Empleado', empleadoSchema);
+exports.validateEmpleado = validateEmpleado;
