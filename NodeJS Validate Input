@@ -49,7 +49,7 @@ function validateEmpleado(empleado) {
 		username: Joi.string().min(3).max(50).required(),
 		nombre: Joi.string().min(3).max(50).required(),
 		apellido: Joi.string().min(3).max(50).required(),
-	  email: Joi.string().min(3).max(50).required().email(),
+	        email: Joi.string().min(3).max(50).required().email(),
 		telefono: Joi.string().min(10).max(14).required(),
 		ocupacion: Joi.string().min(3).max(50).required()
 	};
