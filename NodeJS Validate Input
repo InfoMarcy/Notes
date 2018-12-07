@@ -4,7 +4,9 @@
 2. npm i joi-objectid
 
 ################################################# Empleados handler  Joi#################################################
-const Joi = require("joi");
+const Joi = require('joi');
+Joi.objectId = require('joi-objectid')(Joi);
+
 const { Empleado, validateEmpleado } = require("./models/empleado");
 
 // function to response to the client
@@ -30,6 +32,29 @@ module.exports.create = async event => {
   empleado = await empleado.save();
   return createResponse(201, empleado);
 };
+
+
+
+// get a record from the database
+module.exports.getOne = async event => {
+  // validate Input with Joi
+  const { error } = validateId(event.pathParameters.id);
+  if (error) {
+    return createResponse(400, error.details[0].message);
+  }
+
+  const empleado = await Empleado.findById(event.pathParameters.id);
+  // if there is no record return 404 error
+  if (!empleado) {
+    return createResponse(
+      404,
+      "El Usuario con el id proporcionado no se ha encontrado"
+    );
+  } else {
+    return createResponse(200, empleado);
+  }
+};
+
 
 ################################################# Empleados Model #################################################
 const mongoose = require('mongoose');
