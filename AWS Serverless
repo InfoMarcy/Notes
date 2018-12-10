@@ -94,3 +94,24 @@ module.exports.getItem = async (event, context) => {
    });
 
   }
+
+
+
+//========================== validate mongodb id and get a record from the database===================
+module.exports.getOne = async event => {
+  // validate Input Id with Joi
+  if(!mongoose.Types.ObjectId.isValid(event.pathParameters.id)){
+    return createResponse(400, 'Invalid Id');
+  }
+
+  const empleado = await Empleado.findById(event.pathParameters.id);
+  // if there is no record return 404 error
+  if (!empleado) {
+    return createResponse(
+      404,
+      "El Usuario con el id proporcionado no se ha encontrado"
+    );
+  } else {
+    return createResponse(200, empleado);
+  }
+};
