@@ -10,5 +10,11 @@ xhr.send();
 
 Note:
 To allow cors on the methods of API GATEWAY we need to go to: 
-1. Method Response => add header => enter =>  Access-Control-Allow-Headers
-2. Integration Response => Header Mappings => add "*"  => To Mapping value
+1. Method Response => add header => enter =>  
+         1. Access-Control-Allow-Headers
+         2. Access-Control-Allow-Methods
+         3. Access-Control-Allow-Origin
+2. Integration Response => Header Mappings => add to Mapping value
+         1. 'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'
+         2. 'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'
+         3. '*'
