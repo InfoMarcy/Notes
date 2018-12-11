@@ -25,3 +25,6 @@ ON Integration Request => Mapping Templates filter the imcoming request
 {
 "age" : $input.json('$.persondata.age'),
 }
+
+Validate the incoming request body
+1. go to =>  Method Request => Request Body => add model => and choose your model
