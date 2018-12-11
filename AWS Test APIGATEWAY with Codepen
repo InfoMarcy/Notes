@@ -1,1 +1,10 @@
+1. Code pen Page Url => https://codepen.io/pen/
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://9lbdss2s0c.execute-api.us-east-1.amazonaws.com/dev/compare-yourself');
+xhr.onreadystatechange = function(event){
+  console.log(event.target.response);
+}
+
+xhr.send();
 
