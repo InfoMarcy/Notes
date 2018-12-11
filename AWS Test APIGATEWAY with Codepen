@@ -8,3 +8,7 @@ xhr.onreadystatechange = function(event){
 
 xhr.send();
 
+Note:
+To allow cors on the methods of API GATEWAY we need to go to: 
+1. Method Response => add header => enter =>  Access-Control-Allow-Headers
+2. Integration Response => Header Mappings => add "*"  => To Mapping value
