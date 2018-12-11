@@ -28,3 +28,16 @@ ON Integration Request => Mapping Templates filter the imcoming request
 
 Validate the incoming request body
 1. go to =>  Method Request => Request Body => add model => and choose your model
+
+#Model
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "CompareData",
+  "type" : "object",
+  "properties" : {
+      "age": {"type": "integer"},
+      "height": {"type": "integer"},
+      "income": {"type": "integer"}
+  },
+  "required": ["age", "height", "income"]
+}
