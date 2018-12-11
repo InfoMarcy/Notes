@@ -18,3 +18,10 @@ To allow cors on the methods of API GATEWAY we need to go to:
          1. 'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'
          2. 'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'
          3. '*'
+
+
+ON Integration Request => Mapping Templates filter the imcoming request
+#set($allParams = $input.params())
+{
+"age" : $input.json('$.persondata.age'),
+}
