@@ -18,7 +18,17 @@ To allow cors on the methods of API GATEWAY we need to go to:
          1. 'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'
          2. 'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'
          3. '*'
-
+#Lambda Function
+exports.handler = async (event) => {
+    console.log(event);
+    
+    const age = event.age;
+    const response = {
+        statusCode: 200,
+        body: age * 2,
+    };
+    return response;
+};
 
 ON Integration Request => Mapping Templates filter the imcoming request
 #set($allParams = $input.params())
@@ -26,6 +36,7 @@ ON Integration Request => Mapping Templates filter the imcoming request
 "age" : $input.json('$.persondata.age'),
 }
 
+#Or  using model
 
 #set($inputRoot = $input.path('$'))
 {
