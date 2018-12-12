@@ -45,6 +45,11 @@ ON Integration Request => Mapping Templates filter the imcoming request
   "income" : $inputRoot.income
 }
 
+#Or  getting url params values
+{
+"type": $.input.params('type')
+}
+
 Validate the incoming request body
 1. go to =>  Method Request => Request Body => add model => and choose your model
 
