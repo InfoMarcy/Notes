@@ -47,7 +47,7 @@ ON Integration Request => Mapping Templates filter the imcoming request
 
 #Or  getting url params values
 {
-"type": $.input.params('type')
+"type": "$.input.params('type')"
 }
 
 Validate the incoming request body
