@@ -67,4 +67,14 @@ Validate the incoming request body
   "required": ["age", "height", "income"]
 }
 
+######################### ON Integration Request => get the path params values to pass it to lambda#########################
+#set($inputRoot = $input.path('$'))
+{
+  "age" : $inputRoot.age
+}
+
+######################### ON Integration Response => Mapping Templates to modifie or  format our response#########################
+{
+  "Your age is: " :  $input.json('$'),
+}
 
