@@ -26,6 +26,14 @@ ON Integration Request => Mapping Templates filter the imcoming request
 "age" : $input.json('$.persondata.age'),
 }
 
+
+#set($inputRoot = $input.path('$'))
+{
+  "age" : $inputRoot.age,
+  "height" : $inputRoot.height,
+  "income" : $inputRoot.income
+}
+
 Validate the incoming request body
 1. go to =>  Method Request => Request Body => add model => and choose your model
 
@@ -41,3 +49,5 @@ Validate the incoming request body
   },
   "required": ["age", "height", "income"]
 }
+
+
