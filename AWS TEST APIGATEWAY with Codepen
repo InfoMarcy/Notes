@@ -9,7 +9,7 @@ xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.send(JSON.stringify({ age: 28, height: 72, income: 2500 }));
 
 
-Note:
+######################### Note:#########################
 To allow cors on the methods of API GATEWAY we need to go to: 
 1. Method Response => add header => enter =>  
          1. Access-Control-Allow-Headers
@@ -19,7 +19,7 @@ To allow cors on the methods of API GATEWAY we need to go to:
          1. 'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'
          2. 'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'
          3. '*'
-#Lambda Function
+##########################Lambda Function#########################
 exports.handler = async (event) => {
     console.log(event);
     
@@ -31,7 +31,7 @@ exports.handler = async (event) => {
     return response;
 };
 
-ON Integration Request => Mapping Templates filter the imcoming request
+#########################ON Integration Request => Mapping Templates filter the imcoming request#########################
 #set($allParams = $input.params())
 {
 "age" : $input.json('$.persondata.age'),
@@ -51,10 +51,10 @@ ON Integration Request => Mapping Templates filter the imcoming request
 "type": "$.input.params('type')"
 }
 
-Validate the incoming request body
+#########################Validate the incoming request body#########################
 1. go to =>  Method Request => Request Body => add model => and choose your model
 
-#Model
+##########################Model#########################
 {
   "$schema" : "http://json-schema.org/draft-04/schema#",
   "title" : "CompareData",
