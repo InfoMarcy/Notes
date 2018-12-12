@@ -6,7 +6,7 @@ xhr.onreadystatechange = function(event){
   console.log(event.target.response);
 }
 
-xhr.send();
+xhr.send({ age: 28, height: 72, income: 2500 });
 
 Note:
 To allow cors on the methods of API GATEWAY we need to go to: 
