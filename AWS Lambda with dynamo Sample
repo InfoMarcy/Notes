@@ -1,4 +1,4 @@
-################################## SAVE DATA TO MONGO DB USING LAMBDA   #####################################################
+################################## SAVE DATA TO DYNAMODB USING LAMBDA   #####################################################
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -38,7 +38,7 @@ function createResponse(statusCode, message) {
   };
 }
 };
-################################## GET DATA FROM MONGO DB USING LAMBDA   #####################################################
+################################## GET DATA FROM DYNAMODB USING LAMBDA   #####################################################
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -72,7 +72,7 @@ function createResponse(statusCode, message) {
   };
 }
 };
-################################## Delete DATA FROM MONGO DB USING LAMBDA   #####################################################
+################################## Delete DATA FROM DYNAMODB USING LAMBDA   #####################################################
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
