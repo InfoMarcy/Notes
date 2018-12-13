@@ -1,0 +1,39 @@
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+exports.handler = async (event) => {
+    console.log(event.age);
+     console.log(event.height);
+      console.log(event.income);
+    
+    var params = {
+    Item: {
+      userId: "1234567890",
+      age: event.age,
+      height: event.height,
+      income: event.income
+    },
+    TableName: "compare-yourself"
+  };
+  
+
+    
+    
+    return docClient
+    .put(params)
+    .promise()
+    .then(() => {
+      return createResponse(201, params.Item);
+    })
+    .catch(ex => {
+      return createResponse(500, ex);
+    });
+    
+    
+function createResponse(statusCode, message) {
+  return {
+    statusCode: statusCode,
+    body: message
+  };
+}
+};
