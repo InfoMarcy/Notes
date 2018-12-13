@@ -73,6 +73,22 @@ exports.handler = async (event) => {
   "age" : $inputRoot.age
 }
 
+//pass the values as numbers
+#set($inputRoot = $input.path('$'))
+{
+  "age" : $inputRoot.age,
+  "height" : $inputRoot.height,
+  "height" : $inputRoot.height
+}
+
+//pass the values as String
+#set($inputRoot = $input.path('$'))
+{
+  "age" : "$inputRoot.age",
+  "height" : "$inputRoot.height",
+  "height" : "$inputRoot.height·
+}
+
 ######################### ON Integration Response => Mapping Templates to modifie or  format our response#########################
 {
   "Your age is: " :  $input.json('$'),
