@@ -72,3 +72,35 @@ function createResponse(statusCode, message) {
   };
 }
 };
+################################## Delete DATA FROM MONGO DB USING LAMBDA   #####################################################
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+exports.handler = async (event) => {
+    
+ var userId = "user_0.8649985778482909";
+ const params = {
+    Key: {
+      userId: userId
+    },
+    TableName: "compare-yourself"
+  };
+    
+return docClient
+    .delete(params)
+    .promise()
+    .then(res => {
+      return createResponse(200, res.Item);
+    })
+    .catch(ex => {
+      return createResponse(500, ex);
+    });
+    
+    
+function createResponse(statusCode, message) {
+  return {
+    statusCode: statusCode,
+    body: message
+  };
+}
+};
