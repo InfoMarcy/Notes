@@ -1,3 +1,4 @@
+################################## SAVE DATA TO MONGO DB USING LAMBDA   #####################################################
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -24,6 +25,40 @@ exports.handler = async (event) => {
     .promise()
     .then(() => {
       return createResponse(201, params.Item);
+    })
+    .catch(ex => {
+      return createResponse(500, ex);
+    });
+    
+    
+function createResponse(statusCode, message) {
+  return {
+    statusCode: statusCode,
+    body: message
+  };
+}
+};
+################################## GET DATA FROM MONGO DB USING LAMBDA   #####################################################
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
+
+exports.handler = async (event) => {
+    
+ var userId = "user_0.5423538301732376";
+ var age = 28
+ const params = {
+    Key: {
+      userId: userId,
+      age: age
+    },
+    TableName: "compare-yourself"
+  };
+    
+return docClient
+    .get(params)
+    .promise()
+    .then(res => {
+      return createResponse(200, res.Item);
     })
     .catch(ex => {
       return createResponse(500, ex);
