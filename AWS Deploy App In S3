@@ -1,0 +1,10 @@
+#Simple Storage Service( Amazon s3)
+1. On package.json change => 
+  "scripts": {
+    "build": "ng build --prod",
+  },
+ #run on the terminal window on the root folder of the project
+ 2. npm  run build
+ 3. the previos command will generate a dist folder
+ 4. Then upload the content inside the dist folder to s3 bucket
+ 
