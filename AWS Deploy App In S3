@@ -8,3 +8,17 @@
  3. the previos command will generate a dist folder
  4. Then upload the content inside the dist folder to s3 bucket
  
+ 
+# s3 bucket policy for allowing anonimous user 
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AddPerm",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::bancadigital-cognito-logging-app/*"
+        }
+    ]
+}
