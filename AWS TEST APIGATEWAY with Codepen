@@ -52,6 +52,14 @@ exports.handler = async (event) => {
 "type": "$.input.params('type')"
 }
 
+
+//get cognito accessToken and the id param
+{
+"id": "$input.params('id"),
+"accessToken": "$input.params('accessToken")"
+}
+
+
 #########################Validate the incoming request body#########################
 1. go to =>  Method Request => Request Body => add model => and choose your model
 
