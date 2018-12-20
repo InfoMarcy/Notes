@@ -1,3 +1,4 @@
+#Object
 const person  = {
       name: "Max",
       age: 26,
