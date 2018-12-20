@@ -1,0 +1,10 @@
+const person  = {
+      name: "Max",
+      age: 26,
+      greet() {
+      console.log("Hi, I am " + this.name);
+              }
+      };
+      
+// call the function greet that uses arrow functions
+person.greet();
