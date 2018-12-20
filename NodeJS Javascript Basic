@@ -7,7 +7,7 @@ const person  = {
               }
       };
       
-// call the function greet that uses arrow functions
+// Call the function greet that uses arrow functions
 person.greet();
 
 
@@ -16,3 +16,8 @@ const hobbies = ['Sports', 'Cooking'];
 for (let hobby of hobbies) {
 console.log(hobby);
 }
+
+// Map =>  allows you to transform an array or transform the values  and it will return a new array
+console.log(hobbies.map(hobby => 'Hobby: ' + hobby ));
+
+console.log(hobby);
