@@ -9,3 +9,10 @@ const person  = {
       
 // call the function greet that uses arrow functions
 person.greet();
+
+
+// Array and Loops
+const hobbies = ['Sports', 'Cooking'];
+for (let hobby of hobbies) {
+console.log(hobby);
+}
