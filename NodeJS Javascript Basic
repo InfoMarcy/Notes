@@ -59,6 +59,6 @@ printName(person);
 const {name, age} = person;
 console.log(name, age);
 
-// destructure arrays
+// destructure arrays the items will be pull out by position
 let [hobby1, hobby2] = hobbies;
 console.log(hobby1, hobby1);
