@@ -4,3 +4,8 @@
 #Install vim to edit the files inside the container
 2. apt-get update
 3. apt-get install vim
+
+#Open Documement to edit
+1. vi hello.txrt
+2.  enter =>  i => in the cm to enable edit
+3. To Save the changes press =  esc + :wq
