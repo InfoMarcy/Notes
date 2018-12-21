@@ -1,0 +1,6 @@
+#Enter and access the docker container files
+1. docker exec -it “container-id” /bin/bash
+
+#Install vim to edit the files inside the container
+2. apt-get update
+3. apt-get install vim
