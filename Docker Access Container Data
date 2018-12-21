@@ -16,7 +16,7 @@
 2. docker cp <local directory>/. <docker container id>:<directory inside the container>/
 3. docker cp /Users/desarrolladorios1/Desktop/dev/NodejsSandbox/Angular_Sandbox/bancaDigital-angular-app/dist/bancaDigital-angular-app/. 55955d36c06c:/usr/local/tomcat/webapps/bancaDigital-angular-app/
 
-#View the angular website 
+#View the angular website running on tomcat Web Server
 4. localhost:8888/bancaDigital-angular-app/index.html 
 
 
