@@ -9,3 +9,12 @@
 1. vi hello.txrt
 2.  enter =>  i => in the cm to enable edit
 3. To Save the changes press =  esc + :wq
+
+
+#Copy file from local machine to dsocker container (Tomcat in this case)
+1. docker container ls
+2. docker cp <local directory>/. <docker container id>:<directory inside the container>/
+3. docker cp /Users/desarrolladorios1/Desktop/dev/NodejsSandbox/Angular_Sandbox/bancaDigital-angular-app/dist/bancaDigital-angular-app/. 55e7b4c818ef:/usr/local/tomcat/webapps/bancaDigital-angular-app/
+
+
+
