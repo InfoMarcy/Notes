@@ -42,3 +42,15 @@ const toArray = (...args) => {
 return args
 }
 console.log(toArray(1, 2, 3, 4));
+
+//Object
+const printName = (personData) => {
+console.log(personData.name);
+}
+printName(person);
+
+//Object destructuring
+const printName = ({ name }) => {
+console.log(name);
+}
+printName(person);
