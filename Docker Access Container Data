@@ -14,7 +14,10 @@
 #Copy file from local machine to dsocker container (Tomcat in this case)
 1. docker container ls
 2. docker cp <local directory>/. <docker container id>:<directory inside the container>/
-3. docker cp /Users/desarrolladorios1/Desktop/dev/NodejsSandbox/Angular_Sandbox/bancaDigital-angular-app/dist/bancaDigital-angular-app/. 55e7b4c818ef:/usr/local/tomcat/webapps/bancaDigital-angular-app/
+3. docker cp /Users/desarrolladorios1/Desktop/dev/NodejsSandbox/Angular_Sandbox/bancaDigital-angular-app/dist/bancaDigital-angular-app/. 55955d36c06c:/usr/local/tomcat/webapps/bancaDigital-angular-app/
+
+#View the angular website 
+4. localhost:8888/bancaDigital-angular-app/index.html 
 
 
 
