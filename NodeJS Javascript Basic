@@ -35,3 +35,10 @@ console.log(copyArray)
 // copy an Object  using express operator
 const copiedPerson = {...person};
 console.log(copiedPerson)
+
+
+// Rest Operators
+const toArray = (...args){
+return args
+}
+console.log(toArray(1, 2, 3, 4));
