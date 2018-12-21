@@ -54,3 +54,7 @@ const printName = ({ name }) => {
 console.log(name);
 }
 printName(person);
+
+//Object destructuring properties
+const {name, age} = person;
+console.log(name, age);
