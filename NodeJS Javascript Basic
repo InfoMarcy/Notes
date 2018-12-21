@@ -28,10 +28,10 @@ console.log(hobbies.map(hobby => 'Hobby: ' + hobby ));
 console.log(hobby);
 
 
-//Copy an Array
+//Copy an Array using express operator
 const copyArray = [...hobbies];
 console.log(copyArray)
 
-// copy an Object
+// copy an Object  using express operator
 const copiedPerson = {...person};
 console.log(copiedPerson)
