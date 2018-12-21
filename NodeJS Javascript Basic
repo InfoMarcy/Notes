@@ -58,3 +58,7 @@ printName(person);
 //Object destructuring properties
 const {name, age} = person;
 console.log(name, age);
+
+// destructure arrays
+let [hobby1, hobby2] = hobbies;
+console.log(hobby1, hobby1);
