@@ -7,3 +7,5 @@ Deploy an angular APP On Tomcat Web Server: 
   
   Copiar todos los archivos contenidos en la carpeta de  dist  
   y pegarlas en la carpeta my-angular-app-folder que debe de estar contenida dentro de la capeta  webapps en tomcat WebServer
+  
+ To view the angular App on the browser =>  http://tomcatBaseURL/my-angular-app-folder/index.html 
