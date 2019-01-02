@@ -1,0 +1,66 @@
+
+basepath => http://localhost:3000/api/v1/gitlab
+url => /bloquear/usuario
+
+Datos de entrada 
+{
+  "username": "usuarioCyaal",
+  "password": "hashasdsadasdasadsadadsad.",
+  "numEmpleado": 366166
+}
+
+Datos de salida
+
+Status Code => 200
+{
+    "cgSalida": "CI-101",
+    "descSalida": "Baja aplicada exitosamente"
+}
+
+
+Status Code => 200
+{
+   cgSalida: "CI-102",
+   descSalida: "El	usuario	ya	se	encontraba	dado	de	baja"
+ }
+
+
+Status Code => 404
+{
+    "cgSalida": "CI-103",
+    "descSalida": "No	existe	usuario	en	el	sistema"
+}
+
+
+Status Code => 400
+{
+    "cgSalida": "CI-104",
+    "descSalida": "Error de autenticación, (El usuario y/o contraseña son incorrectos)"
+}
+
+
+Status Code => 500
+{
+    "cgSalida": "CI-120",
+    "descSalida": "Incidencia al conectarse con el servidor"
+}
+
+
+Status Code => 401
+{
+    "cgSalida": "CI-115",
+    "descSalida": "Sin	autorización (El token no es valido)"
+}
+
+Status Code => 403
+{
+    "cgSalida": "CI-116",
+    "descSalida": "Forbidden, No tienes permisos para realizar esta operacion"
+}
+
+
+Status Code => 412
+{
+    "cgSalida": "CI-118",
+    "descSalida": "Solicitud denegada"
+}
