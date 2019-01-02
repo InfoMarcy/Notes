@@ -64,3 +64,11 @@ Status Code => 412
     "cgSalida": "CI-118",
     "descSalida": "Solicitud denegada"
 }
+
+
+
+Status Code => 500
+{
+    "cgSalida": "CI-112",
+    "descSalida": "Error de autenticación, no se pudo autenticar al usuario porque no se pudo obtener la contraseña de la base de datos de usuarios"
+}
