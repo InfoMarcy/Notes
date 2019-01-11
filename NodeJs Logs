@@ -1,0 +1,53 @@
+//=============================== logscontroller======================
+const log4js = require("log4js");
+
+module.exports = function() {
+
+    let typeAndPatter = {
+        type: "pattern",
+        pattern: "[# %d{yyyy-MM-dd hh:mm:ss,SSS} %p %z %c %m #]"
+      };
+      
+      log4js.configure({
+        appenders: {
+          archivo: {
+            type: "file",
+            layout: typeAndPatter,
+            filename: "./logs/server.log",
+            maxLogSize: 500000000,
+            backups: 125,
+            compress: true
+          },
+          app: {
+            type: "console",
+            layout: typeAndPatter
+          }
+        },
+        categories: {
+          default: { appenders: ["archivo", "app"], level: "all" }
+        }
+      });
+
+  };
+
+//=============================== files.js that will use the logs ======================
+//working with log files
+const log4js = require("log4js");
+const logger = log4js.getLogger("index");
+
+require("./controller/logsController")();
+require("./controller/routesController")( app);
+
+// Environment variable
+const port = process.env.PORT || 3000; //listen on a given port
+const server = app.listen(port, () =>
+  logger.info(
+    `La applicacion ${config.get(
+      "name"
+    )} esta corriendo en el puerto: ${port} y en el ambiente de: ${app.get(
+      "env"
+    )}.`
+  )
+);
+
+module.exports = server;
