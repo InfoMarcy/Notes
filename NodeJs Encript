@@ -56,8 +56,8 @@ openssl enc -aes-256-cbc -in $1 -out $2 -d -a -k banco2018
 openssl enc -aes-256-cbc -in $1 -out $2 -e -a -k banco2018
 
 
-#Comando para encriptar en console
-1. #!/bin/bash
+1. #Comando para encriptar en console
+#!/bin/bash
 openssl enc -aes-256-cbc -in $1 -out $2 -e -a -k password
 
 
@@ -65,5 +65,11 @@ openssl enc -aes-256-cbc -in $1 -out $2 -e -a -k password
 openssl enc -aes-256-cbc -in usuariosPlano.json -out usuariosEncriptados.json -e -a -k banco2018
 
 
-#Comando para desencriptar en console
-2
+2. #Comando para desencriptar en console
+#!/bin/bash
+openssl enc -aes-256-cbc -in $1 -out $2 -d -a -k password
+
+
+
+#!/bin/bash
+openssl enc -aes-256-cbc -in usuariosEncriptados.json -out usuarios.json -d -a -k banco2018
