@@ -1,0 +1,1 @@
+ curl -v -k  -H "Content-Type: application/x-www-form-urlencoded" -H "Private-Token:1234567890"  -X POST https://10.51.59.37/api/v4/users/219/block
