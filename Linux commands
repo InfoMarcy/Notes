@@ -10,3 +10,15 @@ sudo chmod -R 777 homebrew/
 kill a process
 lsof -i:8000
 kill -9 6741
+
+
+WS-BajaUsuarios-Git
+
+1. Lenguaje de Programación : NodeJs, Versions =>  v11.5.0 
+2. Requerido para instalar NodeJs : NPM Javascript package manager, Version => 6.7.0 
+3. ssh root@10.51.58.237
+4. password1
+5. mkdir ws-bajausuarios-git 
+6. Remove a folder => rm -rf myfolder
+
+scp -r  /Users/desarrolladorios1/Desktop/dev/NodejsSandbox/banca-digital-login-app/*  root@10.51.58.237:/root/ws-bajausuarios-git
