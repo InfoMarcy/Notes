@@ -21,4 +21,5 @@ WS-BajaUsuarios-Git
 5. mkdir ws-bajausuarios-git 
 6. Remove a folder => rm -rf myfolder
 
+7. Copy files from Computer to linux server
 scp -r  /Users/desarrolladorios1/Desktop/dev/NodejsSandbox/banca-digital-login-app/*  root@10.51.58.237:/root/ws-bajausuarios-git
