@@ -23,3 +23,11 @@ WS-BajaUsuarios-Git
 
 7. Copy files from Computer to linux server
 scp -r  /Users/desarrolladorios1/Desktop/dev/NodejsSandbox/banca-digital-login-app/*  root@10.51.58.237:/root/ws-bajausuarios-git
+
+
+
+Instalar NPM en el servidor 
+rm -f /etc/yum.repos.d/nodesource-el.repo
+yum clean all
+yum -y remove nodejs
+yum -y install nodejs
