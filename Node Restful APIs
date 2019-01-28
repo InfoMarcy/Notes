@@ -232,3 +232,23 @@ const port = process.env.PORT || 3000;
 //listen on a given port
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
+=========================== .  Nodejs Environment Variables =================================
+${process.env.MONGO_USER}
+${process.env.PORT}
+
+
+On package.json => 
+{
+  "name": "banca-digital-login-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+
+  },
+
+
+
+npm install compression
