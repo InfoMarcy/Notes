@@ -31,3 +31,7 @@ rm -f /etc/yum.repos.d/nodesource-el.repo
 yum clean all
 yum -y remove nodejs
 yum -y install nodejs
+
+Edit file using linux commands
+1. vi filename
+2. esc :wq!
