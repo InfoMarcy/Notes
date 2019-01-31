@@ -35,3 +35,15 @@ yum -y install nodejs
 Edit file using linux commands
 1. vi filename
 2. esc :wq!
+
+
+
+Kill a process
+1. netstat -vanp tcp | grep 3000
+2. sudo lsof -i tcp:3000 
+3. kill -9 <PID>
+
+
+// Run an app Permanently using 
+1. export NODE_ENV=production or export NODE_ENV=development
+2. npm start &
