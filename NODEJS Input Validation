@@ -1,0 +1,2 @@
+Install the flash package
+1. npm i --save connect-flash
