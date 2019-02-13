@@ -1,0 +1,29 @@
+Docker 
+1. identificar el puerto de la app = 3000
+2. crear especificacion de nuestro contenedor
+3. crear archivo docker file = touch Dockerfile
+
+Dockerfile
+From node
+EXPOSE 3000
+COPY zamora  /app
+RUN ls  -l  /app
+WORKDIR /app
+RUN npm install
+CMD ["npm", "run", "dev"]
+
+Instala dentro del projecto => npm i nodemon antes de contenerizar el app
+
+El docker file y el folder que contiene el projecto deben estar al mismo nivel
+4. docker  build  -t  [npmbre de la imagen] .
+
+
+-it  []
+--rm []
+--name [nombre del contenedor]
+
+
+5. docker run -it  --rm --name zamora -p 3000:3000 zamora
+
+CMD History
+1. history | tail -n 10
