@@ -31,3 +31,12 @@ doHash();
 doHash();
 doHash();
 doHash();
+
+
+// npm init -y
+// npm i --save express
+
+//Apache BenchMark  
+//-c 50 request at the same time
+//-n 500 request  total
+// ab -c 50 -n 500 http://10.51.58.238:3333/fast
