@@ -33,10 +33,32 @@ doHash();
 doHash();
 
 
-// npm init -y
+/// npm init -y
 // npm i --save express
 
 //Apache BenchMark  
 //-c 50 request at the same time
 //-n 500 request  total
 // ab -c 50 -n 500 http://10.51.58.238:3333/fast
+
+
+
+// PM2 Process Manager is a Cluster Management Solution 
+// https://github.com/Unitech/pm2
+// npm i -g pm2
+
+
+//=============== Start with the number of intances equal to the number of logical CPU Cores  ==================//
+// 1. pm2 start index.js -i 0
+
+
+// show the details of an specific instance
+//  2. pm2 show index
+
+
+// monitor the intances
+// 3. pm2 monit
+
+
+// Stop the running Intances
+// pm2 delete index
