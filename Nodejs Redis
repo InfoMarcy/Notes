@@ -4,3 +4,13 @@ so that means once it gets turn off or restarted all the data that sits inside o
 You can only read data from Redis Cache Server.
 
 Library => npm i redis
+
+
+Redis
+Key | Value
+'id'  'hola'
+
+
+#Install redis
+1. which brew
+2. brew install redis
