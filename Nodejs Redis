@@ -1,2 +1,6 @@
-Redis (Cache Server) => Only read data
+Redis (Cache Server) is an inmemory data store. Which is a tiny database that runs in the memory of your machine 
+and allows you to read and write data very quickly. its a data store that operates only in memory 
+so that means once it gets turn off or restarted all the data that sits inside of it is instanly delete and wipe.
+You can only read data from Redis Cache Server.
 
+Library => npm i redis
