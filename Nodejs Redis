@@ -15,3 +15,4 @@ Key | Value
 1. which brew
 2. brew install redis
 3.  brew services start redis
+4. redis-cli ping
