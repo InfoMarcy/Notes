@@ -50,3 +50,10 @@ const redisValues = {
     blue: "blau"
   }
 };
+
+//Saving objects to redis
+1. client.set('colors', JSON.stringify( {red: 'rojo'} ));
+2. client.get('colors', console.log);
+3. client.get('colors', (err, value)=> {
+             console.log(JSON.parse(value));
+    });
