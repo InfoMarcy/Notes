@@ -62,3 +62,48 @@ Redis => Key | Value => We want query keys that are consistent but unique betwee
 
 #DELETE ALL THE DATA FROM REDIS CACHE
 client.flushall();
+
+
+//===================================NodeJS Code Example======================================//
+const express = require("express");
+const router = express.Router();
+const { Genre, validate } = require("../models/genre");
+const validateObjectId = require("../middleware/validateObjectId");
+
+// Connect to redis
+const redis = require('redis');
+const redisUrl = 'redis://127.0.0.1:6379';
+const client = redis.createClient(redisUrl);
+const util = require('util');
+ // Remove call back and return a promise using util promisify
+client.get = util.promisify(client.get);
+
+
+// Get an item By ID from the database
+router.get("/:id", validateObjectId, async (req, res) => {
+
+  // Do we have any catched data in redis related to this query
+  const cachedGenre = await client.get(req.params.id);
+  console.log("cachedGenre => ", cachedGenre);
+
+  //if Yes, then respond to the request right away and return
+  if(cachedGenre){
+    console.log('SERVING FROM CACHE');
+  return res.status(202).send(JSON.parse(cachedGenre));
+  }
+
+  // if no, we need to respond to request and update our cache to store the data
+  const genre = await Genre.findById(req.params.id);
+  // if there is no record return 404 error
+  if (!genre)
+    return res.status(404).send("The Genre with the given ID was not found");
+
+   // Set the query and its data to redis
+   client.set(req.params.id, JSON.stringify(genre));
+
+
+  // return the response
+  console.log('SERVING FROM MONGODB');
+   res.status(200).send(genre);
+});
+//=================================== END NodeJS Code Example======================================//
