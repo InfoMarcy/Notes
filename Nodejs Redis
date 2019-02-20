@@ -57,3 +57,4 @@ const redisValues = {
 3. client.get('colors', (err, value)=> {
              console.log(JSON.parse(value));
     });
+
