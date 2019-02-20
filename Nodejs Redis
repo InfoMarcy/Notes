@@ -58,3 +58,4 @@ const redisValues = {
              console.log(JSON.parse(value));
     });
 
+Redis => Key | Value => We want query keys that are consistent but unique between query executions
