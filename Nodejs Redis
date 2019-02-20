@@ -16,3 +16,9 @@ Key | Value
 2. brew install redis
 3. brew services start redis
 4. redis-cli ping
+
+
+// Connect to redis
+const redis = require('redis');
+const redisUrl = 'redis://127.0.0.1:6379';
+const client = redis.createClient(redisUrl);
