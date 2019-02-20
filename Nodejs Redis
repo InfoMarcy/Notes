@@ -22,3 +22,10 @@ Key | Value
 const redis = require('redis');
 const redisUrl = 'redis://127.0.0.1:6379';
 const client = redis.createClient(redisUrl);
+// Set a value on redis
+client.set('hi', 'there'); //should return true
+
+// Get a value from redis
+client.get('hi', (err, value)=> {
+console.log(value);
+})
