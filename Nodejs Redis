@@ -14,3 +14,4 @@ Key | Value
 #Install redis
 1. which brew
 2. brew install redis
+3.  brew services start redis
