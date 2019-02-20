@@ -138,3 +138,16 @@ docker run -d \
     
     
     docker run -p 27017:27017 -d --name mongodb --network=springbootmongo  -v /Users/desarrolladorios1/dockerdata/mongo:/data/db  mongo
+    
+    #Redis
+    docker run --name my-redis -p 6379:6379 --restart always --detach redis
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
