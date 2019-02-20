@@ -33,7 +33,20 @@ const client = redis.createClient(redisUrl);
    });
 
 Redish hashes
-1. hset('spanish', 'red', 'rojo');
-2. hget ('spanish', 'red', (err, value)=> {
+1. client.hset('spanish', 'red', 'rojo');
+2. client.hget ('spanish', 'red', (err, value)=> {
              console.log(value);
     });
+
+const redisValues = {
+  spanish: {
+    red: "rojo",
+    orange: "naranja",
+    blue: "azul"
+  },
+  german: {
+    red: "rot",
+    orange: "orange",
+    blue: "blau"
+  }
+};
