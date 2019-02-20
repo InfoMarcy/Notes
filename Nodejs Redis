@@ -51,7 +51,7 @@ const redisValues = {
   }
 };
 
-//Saving objects to redis
+//To save object into redis first we have to turn it into json
 1. client.set('colors', JSON.stringify( {red: 'rojo'} ));
 2. client.get('colors', console.log);
 3. client.get('colors', (err, value)=> {
