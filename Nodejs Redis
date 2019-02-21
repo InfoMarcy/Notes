@@ -64,6 +64,23 @@ Redis => Key | Value => We want query keys that are consistent but unique betwee
 client.flushall();
 
 
+#EXPIRE THE REDIS CACHE VALUES ' EX', (NUMBER OF SECONDS)
+1. client.set('colors', JSON.stringify( {red: 'rojo'}, 'EX', 5));
+2. client.set('color', 'red', 'EX', 5);
+3. client.get('color', console.log)
+
+
+
+
+
+
+
+
+
+
+
+
+
 //===================================NodeJS Code Example======================================//
 const express = require("express");
 const router = express.Router();
