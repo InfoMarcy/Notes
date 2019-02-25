@@ -1,0 +1,21 @@
+  /** GET heroes from the server */
+getToken () {
+  return this.http.post(this.oAuth, null)
+};
+
+
+// GET OAUTH TOKEN 
+this.oAuthService.getToken()
+   .subscribe(
+    res => {
+      this.oAuthToken = JSON.stringify(res);
+      return;
+    },
+    err => {
+      console.log("Incidencia al conectarse con el servidor OAUTH", err);
+    }
+  );
+  
+  
+  const token = JSON.parse(this.oAuthToken);
+  console.log(token.access_token);
