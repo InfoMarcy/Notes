@@ -33,3 +33,9 @@ git push -u origin master
 
 # To ignore a folder from git create a file in the root of the project called => .gitignore
 # and put the name of the folder which you dont want to include in your repository, example => node_modules/
+
+#Commit to a new Branch
+1. git checkout -b your-new-branch
+2. git add .
+3. git commit -m "mesage"
+4, git push origin test
