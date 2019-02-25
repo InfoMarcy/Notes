@@ -3,7 +3,8 @@ getToken () {
   return this.http.post(this.oAuth, null)
 };
 
-
+  oAuthToken: any;
+  
 // GET OAUTH TOKEN 
 this.oAuthService.getToken()
    .subscribe(
