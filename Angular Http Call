@@ -25,4 +25,4 @@ this.oAuthService.getToken()
 ADD CERTIFICADOS SSL TO ANGULAR
 https://brettmckenzie.net/2018/03/14/serving-your-angular-cli-app-locally-over-https/
 1. INSTALL => npm install browser-sync --save-dev
-2. RUN => ng serve --host 10.51.58.238   --ssl true --ssl-key /node_modules/browser-sync/lib/server/certs/server.key --ssl-cert /node_modules/browser-sync/lib/server/certs/server.crt
+2. RUN => ng serve --host 10.51.58.238   --ssl true --ssl-key /node_modules/browser-sync/lib/server/certs/server.key --ssl-cert /node_modules/browser-sync/lib/server/certs/server.crt --deploy-url=/abc/ 
