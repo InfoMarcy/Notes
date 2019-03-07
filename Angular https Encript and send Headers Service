@@ -1,0 +1,81 @@
+import { Injectable } from '@angular/core';
+import { HttpClient,  }    from '@angular/common/http';
+import { Constants } from '../../domain/constants';
+import * as CryptoJS from 'crypto-js'; 
+import { tokenGetter } from '../../app.module';
+import { HttpHeaders } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OauthService {
+
+constructor(private http: HttpClient) { }
+private oAuthToken;
+private encPassword: string = 'secret';  
+private decPassword:string = 'secret'; 
+
+  /** GET heroes from the server */
+getToken () {
+  return this.http.post(Constants.OBTENER_OAUTH_TOKEN, null)
+};
+
+
+
+
+eliminarCliente (id, token) {
+   //Headers 
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Authorization': this.Encrypt("Bearer " + token)
+    })
+  };
+
+  var endpoint = Constants.IP_SERVER_API + Constants.PORT_SERVER_API + Constants.ELIMINAR_CLIENTE + '/'+id;
+  console.log("Eliminar Cliente endpoint => ", endpoint);
+  return this.http.delete(endpoint, httpOptions)
+};
+
+
+doLogin (numEmpleado, token) {
+  // json to be cifrado
+  let cifrar = {
+    "usuario": numEmpleado
+  };
+
+    //Headers 
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Authorization': this.Encrypt("Bearer " + token)
+    })
+  };
+
+  // cifrar body
+  let cifrado = this.Encrypt(JSON.stringify(cifrar));
+
+  console.log("cifrado => ", cifrado);
+
+ //endpoint
+  var endpoint =  Constants.IP_SERVER_API + Constants.PORT_SERVER_API + Constants.VALIDA_ACCESO_LOGIN;
+
+  // return this.http.post(endpoint,  { "datos": cifrado }, httpOptions );
+  return this.http.post(endpoint,  {  "usuario": numEmpleado }, httpOptions );
+};
+
+// Encripta
+Encrypt (req) {
+   var ciphertext = CryptoJS.AES.encrypt(req, this.encPassword.trim()).toString(); 
+   return ciphertext
+ };
+
+// Decripta
+ Decrypt (req) {
+   var ciphertext = CryptoJS.AES.decrypt(req, this.decPassword.trim()).toString(CryptoJS.enc.Utf8); 
+   return ciphertext
+ };
+
+
+}
+
+
+
