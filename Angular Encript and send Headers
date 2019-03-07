@@ -15,12 +15,9 @@ private oAuthToken;
 private encPassword: string = 'secret';  
 private decPassword:string = 'secret'; 
 
-  /** GET heroes from the server */
 getToken () {
   return this.http.post(Constants.OBTENER_OAUTH_TOKEN, null)
 };
-
-
 
 
 eliminarCliente (id, token) {
