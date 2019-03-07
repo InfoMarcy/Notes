@@ -76,3 +76,18 @@ Encrypt (req) {
 
 
 
+//============================== Clase para guardar los datos constantes ==================================//
+export class Constants 
+{ 
+    public static get IP_SERVER_API() : string { return "https://10.51.58.230:"};
+    public static get PORT_SERVER_API() : string { return "443"; };
+
+    //lista de servicios a consumir
+    public static get VALIDA_ACCESO_LOGIN() : string { return "/auth/v1/login" }
+    public static get REGISTRO() : string { return "/auth/v1/registro" }
+
+    //New Ones
+    public static get ELIMINAR_CLIENTE() : string { return "/ambientes/v1/borra/usuario" }
+}
+
+
