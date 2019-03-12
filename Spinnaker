@@ -1,0 +1,78 @@
+https://cloud.google.com/blog/products/devops-sre/canary-analysis-lessons-learned-and-best-practices-from-google-and-waze
+Spinnaker fue desarrollado por netflix. 
+
+Spinnaker permite a los equipos realizar despliegues automáticos a travez de multiples  cuentas y regiones en la nube. incluso a través de multiples plataformas en las nube utilizando pipelines, las cuales se ejecutan siempre que una nueva version es liberada.
+
+Por que deberíamos utilizar spinnaker?
+Porque spinnaker nos ayuda a tener un mejor control en el proceso de despliegue  de aplicaciones en la nube, y lo podemos utilizar como ejemplo para codificar un proceso de liberación. 
+
+
+Porque utilizar despliegue continuo?
+Porque es una practica que permite a las aplicaciones de software ser desplegadas en producción de una manera rápida , segura y automática.
+
+
+Cuales son los beneficios de utilizar despliegue continuo?
+1. Innovación: asegura un  despliegue mas rápido de nuevos cambios, configuraciones y corrección de errores.
+2. Rápida retroalimentación: al incorporar pruebas automatizadas o el análisis automatizado de canary dentro del proceso d despliegue, los problemas pueden ser detectados mas rápidos y corregidos con mayor precisión.
+3. Aumenta la seguridad y la disponibilidad
+4. Aumenta la productividad del desarrollador: ya que estos le dan la ventaja al desarrollador de diagnosticar y reaccionar a los problemas mientras los cambios están fresco para que estos los puedan corregir mas rápidos.
+
+
+
+Mejores Practicas para acelerar la adopción del proceso de despliegue continuo
+1. Fomenta la autosuficiencia: este permite a los ingenieros que desarrollaron el código ser responsables del despliegue y soporte de sus releases y subir los cambios cuando ellos sienten que l código esta listo.
+2. Automatiza los procesos de despliegue
+3. Hace que las cosas sean visibles y que se pueden observar a través de las diferentes plataformas.
+4.   Hace las cosas mas fáciles de implementar
+
+
+
+Consideraciones a tener en cuenta al desplegar en la nube
+1. Administración de las credenciales: Google’s Cloud Key Management y Amazon’s Key Management Service son buenas opciones para administrar las credenciales y permisos. Una recomendación es que los MicroServicios que desplieguen en la nube tengan un  numero mínimo de permisos requerido para funcional.
+2. Aislamiento Regional: para reducir la latencia debes de considerar utilizar una region cerca de donde se expondrá el servicio y es recomendable que se utilicen multiples regiones sin que estas tengan dependencia una de la otra.
+3. Autoscaling: el orquestamiento dinámico  es fundamental para la nube, ya que ayuda a que si un sistema o aplicación falla  sea reemplazado  sin necesidad de hacer ninguna intervención. 
+4. Infraestructura inmutable y persistencia de datos
+5. Service discovery: es como los microservicios típicamente encuentras otros y se conectan con estos.
+6. Usar mutiles proveedores de la nube:
+7. Abstracting Cloud Operations from Users: debemos considerar como los usuarios van a interactuar con la nube selecciona
+
+
+Para  Netflix spinnaker  es  una vista personalizada  que proporciona abstracciones y puede manejar la necesidades organizativas  como son auditar el logging, integración con otros servicios externos y una vista personaliza  de la infraestructura.
+
+
+Spinnaker siempre considera la salud combinada del load balancer y el servicio de discovery antes de permitir que un grupo de servidores que hayan estado corriendo  sean deshabitados  durante el despliegue. Esto asegura que si hay algún error en el nuevo código, los servidores anteriores están activos y recibiendo trafico.
+
+￼
+ 
+1. Nombre de la aplicación
+2. Cluster con un grupo de servidores en la cuenta de PROD y con una salud al 100%
+3. Un grupo de servidores con una buena salud que esta corriendo en US-WEST-2 y corriendo en la version V001 que corresponde al Jenkins build #189
+4. Muestra los detalles de la instancia que esta corriendo, como son tiempo de lanzamiento, status, logs y otras informaciones relevantes.
+
+
+Administrar la infraestructura de la nube
+1. Organizar los recursos de la nube
+
+* Do teams manage their own infrastructure or is it centralized?  
+* Do different teams have different conventions and approaches?  
+* Is everything in one account or split across many accounts?  
+* Do applications have dedicated server groups?  
+* Do resource names indicate their role in the cloud ecosystem?  
+* Are the instances or containers within a server group homogeneous?  
+* How are security and load balancing handled for internal-facing and  external-facing services?  
+El enfoque de Netflix para la infraestructura de la nube gira en torno a las convenciones de nomenclatura, los artefactos inmutables y los grupos de servidores homogéneos.
+
+* A server group at Netflix consists of one or more homogeneous instances. A cluster consists of one or more server groups that share the same name, stack, and detail. A cluster is a Spinnaker concept derived from the naming convention applied to the server groups within it. 
+
+
+Deploying and Rolling Back 
+In a red/black deployment, a new server group is added to the cluster, deploying a newer version of the application. The new server group keeps the name, stack, and detail elements, but increments the version number 
+
+Once deployed and healthy, the new server group is enabled and starts taking traffic. Only once the new server group is fully healthy does the older server group get disabled and stop taking traffic.
+
+This procedure means deployments can proceed without any application down‐ time 
+
+If a problem is detected with the new server group, it is very straightforward to roll back. The old server group is re-enabled and the new one disabled. 
+
+The Application-Centric Control Plane 
+if you’re having each appli‐ cation team manage their own deployments and infrastructure, a single control plane that is organized around their application is much more useful. In an application-centric control plane, all the resources used by an application are accessible in one place, regardless of what region, account, or even cloud they belong to 
