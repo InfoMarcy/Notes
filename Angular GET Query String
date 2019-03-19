@@ -1,0 +1,10 @@
+
+  GetParam() {
+    const results = new RegExp("[\\?&]" + "access_token" + "=([^&#]*)").exec(
+      window.location.href
+    );
+    if (!results) {
+      return 0;
+    }
+    return results[1] || 0;
+  }
