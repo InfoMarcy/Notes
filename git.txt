@@ -90,3 +90,22 @@ Eliminar Archivos en Git
 
 # Para eliminar todos los archivos
 6. git rm *
+
+
+
+Sincronizar repositorio local con repositorio remoto
+1. git fetch
+
+Baja cambios 
+2. git pull 
+
+Integración de cambios mediante consola
+# Fusionar los cambios de una rama con la rama local actual
+3. git merge <nombre_rama>
+4. git push origin/<nombre_de_la_rama>
+
+Ejemplo
+Existen dos ramas: desarrollo y test, nos ubicamos en la rama test y la unimos con la rama desarrollo
+1. git checkout -b test
+2. git merge desarrollo
+3. git push origin/<nombre_de_la_rama>
