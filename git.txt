@@ -74,3 +74,19 @@ git push -u origin master
 Clonar un repositorio de una rama en especifico
 1. git clone -b <Nombre de la rama> http://url.git
 
+Listar todas las ramas locales
+2. git branch -a
+
+Crear una rama local a partir de una rama remota
+3. git checkout -b <nombreRamaRemota> origin/<nombreRamaLocal>
+
+Eliminar rama local
+4. git branch -D <NombreRamaLocal>
+
+
+Eliminar Archivos en Git
+# Para eliminar un archivo
+5. git rm <nombre_del_archivo.extension>
+
+# Para eliminar todos los archivos
+6. git rm *
