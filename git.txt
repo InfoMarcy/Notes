@@ -53,3 +53,9 @@ git push -u origin master
 
 #Subir los cambios
 4. git push origin developer
+
+# View Git Commit history
+5. git log
+
+# Diferencia entre dos ramas en git
+6. git diff master..developer
