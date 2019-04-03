@@ -112,3 +112,10 @@ Existen dos ramas: desarrollo y test, nos ubicamos en la rama test y la unimos c
 1. git checkout -b test
 2. git merge desarrollo
 3. git push origin/<nombre_de_la_rama>
+
+
+Excluir un archivo que no se desee subir al repositorio
+1. git reset HEAD <Nombre del Archivo>
+
+Rollback el ultimo cambio subido al repositorio
+2. git revert HEAD
