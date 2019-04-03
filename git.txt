@@ -59,3 +59,10 @@ git push -u origin master
 
 # Diferencia entre dos ramas en git
 6. git diff master..developer
+
+
+#How do I get the latest version of my code
+#If you don't care about any local changes (including untracked or generated files or subrepositories which just happen to #be here) and just want a copy from the repo:
+1. git reset --hard HEAD
+2. git clean -xffd
+3. git pull origin developer
