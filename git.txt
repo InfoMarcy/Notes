@@ -39,3 +39,17 @@ git push -u origin master
 2. git add .
 3. git commit -m "mesage"
 4, git push origin test
+
+
+
+#Ver la rama en la que estas trabajando
+1. git branch
+
+#Cambiar de rama
+2. git checkout master
+
+#hacer un merge de la rama master a la rama developer
+3. git merge master developer
+
+#Subir los cambios
+4. git push origin developer
