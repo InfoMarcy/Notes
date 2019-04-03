@@ -61,8 +61,11 @@ git push -u origin master
 # View Git Commit history
 5. git log
 
+Mostrar los ultimas 2 cambios subidos al repositorio
+6. git log -p -2
+
 # Diferencia entre dos ramas en git
-6. git diff master..developer
+7. git diff master..developer
 
 
 #How do I get the latest version of my code
