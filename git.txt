@@ -119,3 +119,4 @@ Excluir un archivo que no se desee subir al repositorio
 
 Rollback el ultimo cambio subido al repositorio
 2. git revert HEAD
+3. git push 
