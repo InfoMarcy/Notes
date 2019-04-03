@@ -1,3 +1,7 @@
+Configuración inicial de git
+1. Git config —global user.name “nombreUsuario”
+2. Git config —global user.email=correoELectronico
+
 #check git directory on local computer (git bash cmd)
 pwd
 
@@ -66,3 +70,7 @@ git push -u origin master
 1. git reset --hard HEAD
 2. git clean -xffd
 3. git pull origin developer
+
+Clonar un repositorio de una rama en especifico
+1. git clone -b <Nombre de la rama> http://url.git
+
