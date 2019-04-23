@@ -37,6 +37,9 @@ Edit file using linux commands
 2. esc :wq!
 
 
+JWT
+const token = jwt.sign({ _username: currentUser }, "secret",{ expiresIn: 300 })
+
 
 Kill a process
 1. netstat -vanp tcp | grep 3000
