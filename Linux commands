@@ -47,3 +47,6 @@ Kill a process
 // Run an app Permanently using 
 1. export NODE_ENV=production or export NODE_ENV=development
 2. npm start &
+
+telnet ip  puerto
+telnet 10.51.58.238 3000
