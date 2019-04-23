@@ -50,3 +50,6 @@ Kill a process
 
 telnet ip  puerto
 telnet 10.51.58.238 3000
+
+
+curl -X POST -H "Content-Type: text/plain" --data “Hola”  http://ip:8090/
