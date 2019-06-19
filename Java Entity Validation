@@ -1,0 +1,65 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+private static final Logger LOG = LoggerFactory.getLogger(Class.class);
+
+LOG.info("FrecuenteComponent :::: Guarda Frecuente...");
+     
+
+
+Java Entity Validations
+    @NotBlank(message="El campo SKU es requerido para la operación.")
+    @Pattern(regexp="([a-zA-Z0-9_-]){0,50}$", message="ICU invalido. Favor validar que los datos introducidos sean correctos.")
+    @ApiModelProperty(example = "SKU", required = true)
+    private String sku;
+            
+    @Positive(message="El campo monto debe ser mayor a cero.")
+    @ApiModelProperty(example="123.35", required = true)
+    private double monto;
+
+    @NotBlank(message="El id de la solicitud es requerido para la operación.")
+    @Pattern(regexp="^[0-9]*$", message="El id de la solicitud debe ser num\u00e9rico.")
+    @ApiModelProperty(example = "2019010101010101", required = true)
+    private String idSolicitud;
+
+    @NotBlank(message = "El cliente único es requerido para la operación.") 
+    @Pattern(regexp="(^\\d{1,2}-\\d{1,2}-\\d{1,4}-\\d{1,10}|^\\d{1,2}\\d{1,2}\\d{1,4}\\d{1,10})$", message="Cliente único inválido. Favor validar que los datos introducidos sean correctos.")
+    @ApiModelProperty(example = "1-1-3334-9546", required = true)
+    private String cu;
+
+
+
+     Throw Exception
+
+    if(Validations.isNullOrEmpty(consultaRequestTO.getNumeroCuenta()) ) {
+            throw new MessageException(1105, HttpStatus.BAD_REQUEST);
+        }
+
+    String regex = "^[0-9]*$";
+    if(Pattern.matches(regex, id) == false) {
+            throw new MessageException(1135, HttpStatus.BAD_REQUEST);
+        }
+
+
+Mongo
+db.getCollection('MSCodigosError').find({proyecto:"myProject"})
+
+
+     {
+            "code" : 1109,
+            "msj" : "No se encontraron coincidencias."
+        }
+
+CodigosError
+
+CodigosRespuesta
+
+MSCodigosError
+
+
+SSL Validation Java
+javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(new javax.net.ssl.HostnameVerifier() {
+            public boolean verify(String hostname, javax.net.ssl.SSLSession sslSession) {
+                return hostname.equals("IP");
+            }
+        });
+
