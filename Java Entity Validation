@@ -63,3 +63,21 @@ javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(new javax.net.ssl.Ho
             }
         });
 
+
+
+Validar campo null or empty
+if(!Validations.isNullOrEmpty(reference.getFieldName()))
+                    detalle.add("Revise la informaci\u00f3n del campo "+reference.getFieldName());
+
+
+    public static boolean isNullOrEmpty(Object data) {
+        boolean flag = false;
+        if (isNull(data)) {
+            flag = true;
+        } else {
+            if (String.valueOf(data).trim().isEmpty()) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
