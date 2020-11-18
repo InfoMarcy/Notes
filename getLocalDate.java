@@ -1,3 +1,21 @@
+	 //compile group: 'joda-time', name: 'joda-time', version: '2.10.8'
+	// Get current date
+	public static String getFecha() {
+		// get the default time zone
+		ZoneId defaultZoneId = ZoneId.systemDefault();
+		// get the default time zone
+		DateTimeZone timeZone = DateTimeZone.forID(defaultZoneId.toString());
+		SimpleDateFormat headerFormat = new SimpleDateFormat("yyyyMMdd", Locale.US);
+		// get the current time
+		DateTime now = DateTime.now(timeZone);
+		// convert DateTime to Date
+		Date currentDate = now.toDate();
+		String fecha = headerFormat.format(currentDate.getTime());
+		return fecha;
+	}
+	
+
+
 	// get the local Date
 	private void getLocalDate() {
 		// format the date
