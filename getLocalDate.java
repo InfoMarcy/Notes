@@ -1,5 +1,5 @@
 	 //compile group: 'joda-time', name: 'joda-time', version: '2.10.8'
-	// Get current date
+	// GET LOCAL TIME
 	public static String getFecha() {
 		// get the default time zone
 		ZoneId defaultZoneId = ZoneId.systemDefault();
@@ -11,6 +11,16 @@
 		// convert DateTime to Date
 		Date currentDate = now.toDate();
 		String fecha = headerFormat.format(currentDate.getTime());
+		return fecha;
+	}
+
+      // GET UTC TIME ZOME
+	public static String getFecha() {
+		SimpleDateFormat headerFormat = new SimpleDateFormat("yyyyMMdd", Locale.US);
+		headerFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+		Calendar now = Calendar.getInstance();
+		now.add(Calendar.DATE, -1);
+		String fecha = headerFormat.format(now.getTime());
 		return fecha;
 	}
 	
